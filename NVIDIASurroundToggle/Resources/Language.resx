@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FrmOptions_I_don_t_know_anything_about_your_monitor_arrangement_in_extended_mode__Next_time__I_will_take_a_copy_of_your_settings_before_changing_to_surround_mode_" xml:space="preserve">
+    <value>I don't know anything about your monitor arrangement in extended mode. Next time, I will take a copy of your settings before changing to surround mode.</value>
+  </data>
+  <data name="FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup_" xml:space="preserve">
+    <value>I took a copy of your settings last time you was in extended mode. So I may have an idea about your desired configuration. Click here to remove this data and to ask you again later to reorganize your setup.</value>
+  </data>
+  <data name="FrmOptions_I_have_no_idea_about_your_surround_settings__I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_" xml:space="preserve">
+    <value>I have no idea about your surround settings. I will ask you about it the next time you tried to enable the surround mode.</value>
+  </data>
+  <data name="FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_" xml:space="preserve">
+    <value>I believe that I have an idea about how you expect your surround setup to be. If you think that I am wrong, click here and I will ask you about it the next time you tried to enable the surround mode.</value>
+  </data>
+  <data name="FrmOptions_Sometimes__and_especially_when_I_get_confused__I_may_do_things_that_I_did_not_intended_to_do__Like_messing_with_your_taskbar_and_NVIDIA_control_panel__If_something_like_that_happened_to_you__click_here_and_I_do_my_best_to_make_it_right_" xml:space="preserve">
+    <value>Sometimes, and especially when I get confused, I may do things that I did not intended to do. Like messing with your taskbar and NVIDIA control panel. If something like that happened to you, click here and I do my best to make it right.</value>
+  </data>
+  <data name="FrmOptions_I_tried_to_solve_the_problems__you_happy_now_" xml:space="preserve">
+    <value>I tried to solve the problems, you happy now?</value>
+  </data>
+  <data name="FrmTools_Shortcut_created_successfully_" xml:space="preserve">
+    <value>Shortcut created successfully.</value>
+  </data>
+  <data name="FrmTools_Shortcut" xml:space="preserve">
+    <value>Shortcut</value>
+  </data>
+  <data name="FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred_" xml:space="preserve">
+    <value>Failed to create the shortcut. Unexpected exception occurred.</value>
+  </data>
+  <data name="FrmTools_Toggles_the_display_mode_between_surround_and_extended" xml:space="preserve">
+    <value>Toggles the display mode between surround and extended</value>
+  </data>
+  <data name="FrmTools_Changes_the_display_mode_to_surround" xml:space="preserve">
+    <value>Changes the display mode to surround</value>
+  </data>
+  <data name="FrmTools_Changes_the_display_mode_to_extended" xml:space="preserve">
+    <value>Changes the display mode to extended</value>
+  </data>
+  <data name="FrmTools_Bad_file_selected__Please_select_an_executable_file_" xml:space="preserve">
+    <value>Bad file selected. Please select an executable file.</value>
+  </data>
+  <data name="FrmTools_App_Select" xml:space="preserve">
+    <value>App Select</value>
+  </data>
+  <data name="FrmSplash_Failed__Closing____" xml:space="preserve">
+    <value>Failed, Closing ...</value>
+  </data>
+  <data name="FrmSplash_Please_wait____" xml:space="preserve">
+    <value>Please wait ...</value>
+  </data>
+  <data name="FrmSplash_Starting_in__0__seconds____" xml:space="preserve">
+    <value>Starting in {0} seconds ...</value>
+  </data>
+  <data name="CommandLineOptions_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="FrmSplash_While_I_am_working__do_not_play_with_mouse_and_keyboard__This_is_a_serious_job_" xml:space="preserve">
+    <value>While I am working, do not play with mouse and keyboard. This is a serious job.</value>
+  </data>
+  <data name="FrmSplash__Tools" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="FrmSplash__Options" xml:space="preserve">
+    <value>&amp;Options</value>
+  </data>
+  <data name="FrmSplash_There_is_no_active_splash_screen_" xml:space="preserve">
+    <value>There is no active splash screen.</value>
+  </data>
+  <data name="FrmOptions_Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="FrmOptions_By_Soroush_Falahati_v_0_" xml:space="preserve">
+    <value>By Soroush Falahati v{0}</value>
+  </data>
+  <data name="FrmTools_Create_Shortcut__Commands" xml:space="preserve">
+    <value>Create Shortcut: Commands</value>
+  </data>
+  <data name="FrmTools_Place_Shortcut" xml:space="preserve">
+    <value>Place Shortcut</value>
+  </data>
+  <data name="FrmTools_Toggle" xml:space="preserve">
+    <value>Toggle</value>
+  </data>
+  <data name="FrmTools_Extended_Mode" xml:space="preserve">
+    <value>Extended Mode</value>
+  </data>
+  <data name="FrmTools_Surround_Mode" xml:space="preserve">
+    <value>Surround Mode</value>
+  </data>
+  <data name="FrmTools_Create_Shortcut__App_Control" xml:space="preserve">
+    <value>Create Shortcut: App Control</value>
+  </data>
+  <data name="FrmTools_Timeout" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+  <data name="FrmTools_With_Arguments" xml:space="preserve">
+    <value>With Arguments</value>
+  </data>
+  <data name="FrmTools_Waiting_Process" xml:space="preserve">
+    <value>Waiting Process</value>
+  </data>
+  <data name="FrmTools_Select_an_application_s_executable_file" xml:space="preserve">
+    <value>Select an application's executable file</value>
+  </data>
+  <data name="FrmTools_Open_Tools" xml:space="preserve">
+    <value>Open Tools</value>
+  </data>
+  <data name="FrmTools_Open_Options" xml:space="preserve">
+    <value>Open Options</value>
+  </data>
+  <data name="FrmTools_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="FrmTools_Open__0__in_surround_mode_" xml:space="preserve">
+    <value>Open {0} in surround mode.</value>
+  </data>
+  <data name="FrmTools_Open__0__in_extended_mode_" xml:space="preserve">
+    <value>Open {0} in extended mode.</value>
+  </data>
+  <data name="FrmTools_Opens_the_program_s_configuration_screen_" xml:space="preserve">
+    <value>Opens the program's configuration screen.</value>
+  </data>
+  <data name="FrmTools_Opens_the_program_s_tools_screen_" xml:space="preserve">
+    <value>Opens the program's tools screen.</value>
+  </data>
+  <data name="Program_Can_not_open_a_named_pipe_for_IPC_" xml:space="preserve">
+    <value>Can not open a named pipe for IPC.</value>
+  </data>
+  <data name="Program_Another_instance_of_this_program_is_in_working_state__please_try_again_later_" xml:space="preserve">
+    <value>Another instance of this program is in working state, please try again later.</value>
+  </data>
+  <data name="Program_Bad_Action_Specified" xml:space="preserve">
+    <value>Bad Action Specified</value>
+  </data>
+  <data name="Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again_" xml:space="preserve">
+    <value>You can't start a process in extended mode when you have another process in surround mode. Close the other program and try again.</value>
+  </data>
+  <data name="Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again_" xml:space="preserve">
+    <value>You can't start a process in surround mode when you have another process in extended mode. Close the other program and try again.</value>
+  </data>
+  <data name="Program_Bad_Filename_Specified" xml:space="preserve">
+    <value>Bad Filename Specified</value>
+  </data>
+  <data name="Program_Fatal Error__" xml:space="preserve">
+    <value>Fatal Error: 
+ {0}</value>
+  </data>
+  <data name="Program_Fatal_Error" xml:space="preserve">
+    <value>Fatal Error</value>
+  </data>
+  <data name="Surround_Arrangement_panel_is_not_accessible_from_our_side__can_t_save_your_settings_" xml:space="preserve">
+    <value>Arrangement panel is not accessible from our side, can't save your settings.</value>
+  </data>
+  <data name="Surround_Can_t_find_the_surround_settings_" xml:space="preserve">
+    <value>Can't find the surround settings.</value>
+  </data>
+  <data name="Surround_Failed_to_change_the_surround_settings_" xml:space="preserve">
+    <value>Failed to change the surround settings.</value>
+  </data>
+  <data name="Surround_NVIDIA_Control_Panel_is_absent_on_this_system_" xml:space="preserve">
+    <value>NVIDIA Control Panel is absent on this system.</value>
+  </data>
+</root>
