@@ -488,7 +488,7 @@ namespace NVIDIASurroundToggle.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Fatal Error: 
-        /// {0}.
+        ///{0}.
         /// </summary>
         internal static string Program_Fatal_Error__ {
             get {

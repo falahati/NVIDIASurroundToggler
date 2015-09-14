@@ -108,11 +108,7 @@
                                         Language
                                             .Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again_);
                                 }
-                                if (!Surround.DisableSurround(false))
-                                {
-                                    return;
-                                }
-                                didWeChangedTheMode = true;
+                                didWeChangedTheMode = Surround.DisableSurround(false);
                             }
                             Service.GetInstance().Status = InstanceStatus.WaitingForExtendedProcess;
                             break;
@@ -125,11 +121,7 @@
                                         Language
                                             .Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again_);
                                 }
-                                if (!Surround.EnableSurround(false))
-                                {
-                                    return;
-                                }
-                                didWeChangedTheMode = true;
+                                didWeChangedTheMode = Surround.EnableSurround(false);
                             }
                             Service.GetInstance().Status = InstanceStatus.WaitingForSurroundProcess;
                             break;
