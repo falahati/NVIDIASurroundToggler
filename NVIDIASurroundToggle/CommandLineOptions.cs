@@ -1,14 +1,12 @@
-﻿namespace NVIDIASurroundToggle
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
+using CommandLine;
+using CommandLine.Text;
+using NVIDIASurroundToggle.Resources;
+
+namespace NVIDIASurroundToggle
 {
-    using System;
-    using System.Linq;
-    using System.Windows.Forms;
-
-    using CommandLine;
-    using CommandLine.Text;
-
-    using NVIDIASurroundToggle.Resources;
-
     internal class CommandLineOptions
     {
         public enum Actions
@@ -26,7 +24,7 @@
             OpenTools
         }
 
-        private static CommandLineOptions defaultObject;
+        private static CommandLineOptions _defaultObject;
 
         private CommandLineOptions()
         {
@@ -57,17 +55,17 @@
         {
             get
             {
-                if (defaultObject == null)
+                if (_defaultObject == null)
                 {
-                    defaultObject = new CommandLineOptions();
-                    Parser.Default.ParseArguments(Environment.GetCommandLineArgs().Skip(1).ToArray(), defaultObject);
+                    _defaultObject = new CommandLineOptions();
+                    Parser.Default.ParseArguments(Environment.GetCommandLineArgs().Skip(1).ToArray(), _defaultObject);
                     Console.WriteLine(string.Join(" ", Environment.GetCommandLineArgs().Skip(1)));
-                    if (defaultObject.LastParserState != null && defaultObject.LastParserState.Errors.Count > 0)
+                    if (_defaultObject.LastParserState != null && _defaultObject.LastParserState.Errors.Count > 0)
                     {
-                        throw new Exception(defaultObject.LastParserState.Errors[0].ToString());
+                        throw new Exception(_defaultObject.LastParserState.Errors[0].ToString());
                     }
                 }
-                return defaultObject;
+                return _defaultObject;
             }
         }
 

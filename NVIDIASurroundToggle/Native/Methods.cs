@@ -1,11 +1,10 @@
-﻿namespace NVIDIASurroundToggle.Native
+﻿using System;
+using System.Runtime.InteropServices;
+using NVIDIASurroundToggle.Native.Enums;
+using NVIDIASurroundToggle.Native.Stractures;
+
+namespace NVIDIASurroundToggle.Native
 {
-    using System;
-    using System.Runtime.InteropServices;
-
-    using NVIDIASurroundToggle.Native.Enums;
-    using NVIDIASurroundToggle.Native.Stractures;
-
     public static class Methods
     {
         public delegate bool EnumWindowProc(IntPtr hWnd, IntPtr parameter);

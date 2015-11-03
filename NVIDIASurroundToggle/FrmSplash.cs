@@ -1,31 +1,30 @@
-﻿namespace NVIDIASurroundToggle
+﻿using System;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
+using System.Windows.Threading;
+using NVIDIASurroundToggle.Native;
+using NVIDIASurroundToggle.Native.Enums;
+using NVIDIASurroundToggle.Resources;
+
+namespace NVIDIASurroundToggle
 {
-    using System;
-    using System.Drawing;
-    using System.Threading;
-    using System.Windows.Forms;
-    using System.Windows.Threading;
-
-    using NVIDIASurroundToggle.Native;
-    using NVIDIASurroundToggle.Native.Enums;
-    using NVIDIASurroundToggle.Resources;
-
     public partial class FrmSplash : Form
     {
-        private static FrmSplash instance;
+        private static FrmSplash _instance;
 
-        private readonly Action action;
+        private readonly Action _action;
 
-        private readonly bool showButtons;
+        private readonly bool _showButtons;
 
-        private int time = 5;
+        private int _time = 5;
 
         public FrmSplash(Action action = null, bool showButtons = true)
         {
-            this.InitializeComponent();
-            this.FrmSplashLocationChanged(null, null);
-            this.action = action;
-            this.showButtons = showButtons;
+            InitializeComponent();
+            FrmSplashLocationChanged(null, null);
+            _action = action;
+            _showButtons = showButtons;
             Instance = this;
         }
 
@@ -33,112 +32,110 @@
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
                     throw new Exception(Language.FrmSplash_There_is_no_active_splash_screen_);
                 }
-                return instance;
+                return _instance;
             }
-            private set
-            {
-                instance = value;
-            }
+            private set { _instance = value; }
         }
 
         private void FrmSplashLoad(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            TopMost = true;
             Utility.ToggleTaskbar(false);
-            if (!this.showButtons)
+            if (!_showButtons)
             {
-                this.time = 0;
+                _time = 0;
             }
-            this.HiderTick(null, null);
+            HiderTick(null, null);
         }
 
         private async void HiderTick(object sender, EventArgs e)
         {
-            this.time--;
-            if (this.time > 0)
+            _time--;
+            if (_time > 0)
             {
-                this.lbl_message.Text = string.Format(Language.FrmSplash_Starting_in__0__seconds____, this.time);
-                if (!this.t_hider.Enabled)
+                lbl_message.Text = string.Format(Language.FrmSplash_Starting_in__0__seconds____, _time);
+                if (!t_hider.Enabled)
                 {
-                    this.t_hider.Start();
+                    t_hider.Start();
                 }
             }
             else
             {
                 Cursor.Hide();
-                this.lbl_message.Text = Language.FrmSplash_Please_wait____;
-                this.t_hider.Stop();
-                this.btn_options.Visible = false;
-                this.btn_tools.Visible = false;
-                if (this.action != null)
+                lbl_message.Text = Language.FrmSplash_Please_wait____;
+                t_hider.Stop();
+                btn_options.Visible = false;
+                btn_tools.Visible = false;
+                if (_action != null)
                 {
-                    this.t_killer.Start();
+                    t_killer.Start();
                     try
                     {
-                        await Dispatcher.CurrentDispatcher.BeginInvoke(this.action, null);
+                        await Dispatcher.CurrentDispatcher.BeginInvoke(_action, null);
                     }
                     catch
                     {
+                        // ignored
                     }
                 }
-                this.Close();
+                Close();
             }
         }
 
         private void FrmSplashLocationChanged(object sender, EventArgs e)
         {
-            this.Size = new Size(
+            Size = new Size(
                 Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen),
                 Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen));
-            this.Location = new Point(
+            Location = new Point(
                 Methods.GetSystemMetrics(SystemMetric.XVirtualScreen),
                 Methods.GetSystemMetrics(SystemMetric.YVirtualScreen));
         }
 
         private void FrmSplashFormClosed(object sender, FormClosedEventArgs e)
         {
-            this.t_hider.Stop();
-            this.t_killer.Stop();
+            t_hider.Stop();
+            t_killer.Stop();
             Utility.ToggleTaskbar(true);
             Cursor.Show();
         }
 
         private void FrmSplashPaint(object sender, PaintEventArgs e)
         {
-            this.FrmSplashLocationChanged(null, null);
+            FrmSplashLocationChanged(null, null);
         }
 
         private void FrmSplashKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Escape && this.t_hider.Enabled)
+            if (e.KeyData == Keys.Escape && t_hider.Enabled)
             {
-                this.Close();
+                Close();
             }
         }
 
         private void KillerTick(object sender, EventArgs e)
         {
-            this.lbl_message.Text = Language.FrmSplash_Failed__Closing____;
+            lbl_message.Text = Language.FrmSplash_Failed__Closing____;
             Application.DoEvents();
             Thread.Sleep(5000);
-            this.Close();
+            Close();
             Application.Exit();
         }
 
         private void BtnToolsClick(object sender, EventArgs e)
         {
             new FrmTools().Show();
-            this.Close();
+            Close();
         }
 
         private void BtnOptionsClick(object sender, EventArgs e)
         {
             new FrmOptions().Show();
-            this.Close();
+            Close();
         }
     }
 }

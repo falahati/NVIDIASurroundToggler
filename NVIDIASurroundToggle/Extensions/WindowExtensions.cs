@@ -1,22 +1,20 @@
-﻿namespace NVIDIASurroundToggle.Extensions
+﻿using System;
+using NVIDIASurroundToggle.Native;
+using NVIDIASurroundToggle.Native.Enums;
+using TestStack.White.UIItems.WindowItems;
+
+namespace NVIDIASurroundToggle.Extensions
 {
-    using System;
-
-    using NVIDIASurroundToggle.Native;
-    using NVIDIASurroundToggle.Native.Enums;
-
-    using TestStack.White.UIItems.WindowItems;
-
     public static class WindowExtensions
     {
         public static void HideMinimize(this Window window)
         {
-            int posX = Methods.GetSystemMetrics(SystemMetric.XVirtualScreen);
-            int posY = Methods.GetSystemMetrics(SystemMetric.YVirtualScreen);
-            int sizeX = Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen);
-            int sizeY = Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen);
-            IntPtr handle = window.GetHWnd();
-            var style = (WindowStyles)Methods.GetWindowLong(handle, -0x14);
+            var posX = Methods.GetSystemMetrics(SystemMetric.XVirtualScreen);
+            var posY = Methods.GetSystemMetrics(SystemMetric.YVirtualScreen);
+            var sizeX = Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen);
+            var sizeY = Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen);
+            var handle = window.GetHWnd();
+            var style = (WindowStyles) Methods.GetWindowLong(handle, -0x14);
             var isResizableAndNotModal = (style.HasFlag(WindowStyles.ThickFrame)
                                           || style.HasFlag(WindowStyles.WindowEdge)
                                           && !style.HasFlag(WindowStyles.DlgModalFrame));
@@ -27,7 +25,7 @@
             Methods.SetWindowLong(
                 handle,
                 -0x14,
-                (uint)((style | WindowStyles.ToolWindow) & ~(WindowStyles.ThickFrame) & ~(WindowStyles.WindowEdge)));
+                (uint) ((style | WindowStyles.ToolWindow) & ~(WindowStyles.ThickFrame) & ~(WindowStyles.WindowEdge)));
             Methods.SetWindowPos(
                 handle,
                 new IntPtr(1),
@@ -42,11 +40,11 @@
 
         public static void ShowFocus(this Window window)
         {
-            int posX = Methods.GetSystemMetrics(SystemMetric.XVirtualScreen);
-            int posY = Methods.GetSystemMetrics(SystemMetric.YVirtualScreen);
-            int sizeX = Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen);
-            int sizeY = Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen);
-            IntPtr handle = window.GetHWnd();
+            var posX = Methods.GetSystemMetrics(SystemMetric.XVirtualScreen);
+            var posY = Methods.GetSystemMetrics(SystemMetric.YVirtualScreen);
+            var sizeX = Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen);
+            var sizeY = Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen);
+            var handle = window.GetHWnd();
             Methods.ShowWindow(handle, ShowWindow.ShowNormal);
             Methods.SetWindowPos(
                 handle,
@@ -63,12 +61,12 @@
 
         public static void ShowTopMost(this Window window)
         {
-            int posX = (int)((Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen) - window.Bounds.Width) / 2)
+            var posX = (int) ((Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen) - window.Bounds.Width)/2)
                        + Methods.GetSystemMetrics(SystemMetric.XVirtualScreen);
-            int posY = (int)((Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen) - window.Bounds.Height) / 2)
+            var posY = (int) ((Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen) - window.Bounds.Height)/2)
                        + Methods.GetSystemMetrics(SystemMetric.YVirtualScreen);
 
-            IntPtr handle = window.GetHWnd();
+            var handle = window.GetHWnd();
             Methods.ShowWindow(handle, ShowWindow.ShowNormal);
             Methods.SetWindowLong(handle, -20, Methods.GetWindowLong(handle, -20) ^ 0x80000);
             Methods.SetLayeredWindowAttributes(handle, 0, 255, 0x2);
@@ -92,10 +90,10 @@
         {
             window.ExecuteAutomationAction(
                 () =>
-                    {
-                        code();
-                        return false;
-                    });
+                {
+                    code();
+                    return false;
+                });
         }
 
         public static T ExecuteAutomationAction<T>(this Window window, Func<T> code)

@@ -1,16 +1,13 @@
-﻿namespace NVIDIASurroundToggle
+﻿using System;
+using System.IO;
+using System.Threading;
+using IWshRuntimeLibrary;
+using NVIDIASurroundToggle.Native;
+using NVIDIASurroundToggle.Native.Enums;
+using File = System.IO.File;
+
+namespace NVIDIASurroundToggle
 {
-    using System;
-    using System.IO;
-    using System.Threading;
-
-    using IWshRuntimeLibrary;
-
-    using NVIDIASurroundToggle.Native;
-    using NVIDIASurroundToggle.Native.Enums;
-
-    using File = System.IO.File;
-
     public static class Utility
     {
         public delegate bool ReoccurringMethod();
@@ -33,18 +30,17 @@
 
         public static bool DoTimeout(ReoccurringMethod action, int timeout = 5000, int interval = 100)
         {
-            int time = 0;
+            var time = 0;
             do
             {
-                bool value = action();
+                var value = action();
                 if (value)
                 {
                     return true;
                 }
                 Thread.Sleep(interval);
                 time += interval;
-            }
-            while (time < timeout);
+            } while (time < timeout);
             return false;
         }
 
@@ -62,7 +58,7 @@
                 {
                     File.Delete(address);
                 }
-                var shortcut = (IWshShortcut)new WshShell().CreateShortcut(address);
+                var shortcut = (IWshShortcut) new WshShell().CreateShortcut(address);
                 shortcut.Description = description;
                 shortcut.TargetPath = filename;
                 shortcut.Arguments = arguments;
@@ -86,7 +82,7 @@
 
         public static T DefaultOnException<T>(Func<T> code, T defaultValue = default(T))
         {
-            T result = defaultValue;
+            var result = defaultValue;
             if (code != null)
             {
                 try
@@ -95,6 +91,7 @@
                 }
                 catch
                 {
+                    // ignored
                 }
             }
             return result;

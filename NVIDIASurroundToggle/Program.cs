@@ -1,16 +1,15 @@
-﻿namespace NVIDIASurroundToggle
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
+using NVIDIASurroundToggle.InterProcess;
+using NVIDIASurroundToggle.Properties;
+using NVIDIASurroundToggle.Resources;
+
+namespace NVIDIASurroundToggle
 {
-    using System;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows.Forms;
-
-    using NVIDIASurroundToggle.InterProcess;
-    using NVIDIASurroundToggle.Properties;
-    using NVIDIASurroundToggle.Resources;
-
     internal static class Program
     {
         /// <summary>
@@ -130,27 +129,27 @@
                     }
                     Utility.ContinueException(
                         () =>
+                        {
+                            var process = Process.Start(
+                                CommandLineOptions.Default.StartFilename,
+                                CommandLineOptions.Default.StartArguments);
+                            Process[] processes = {process};
+                            if (!string.IsNullOrWhiteSpace(CommandLineOptions.Default.StartProcess))
                             {
-                                var process = Process.Start(
-                                    CommandLineOptions.Default.StartFilename,
-                                    CommandLineOptions.Default.StartArguments);
-                                Process[] processes = { process };
-                                if (!string.IsNullOrWhiteSpace(CommandLineOptions.Default.StartProcess))
-                                {
-                                    Utility.DoTimeout(
-                                        () =>
-                                            {
-                                                processes =
-                                                    Process.GetProcessesByName(CommandLineOptions.Default.StartProcess);
-                                                return processes.Length > 0;
-                                            },
-                                        CommandLineOptions.Default.StartProcessTimeout * 1000);
-                                }
-                                foreach (var p in processes)
-                                {
-                                    p.WaitForExit();
-                                }
-                            });
+                                Utility.DoTimeout(
+                                    () =>
+                                    {
+                                        processes =
+                                            Process.GetProcessesByName(CommandLineOptions.Default.StartProcess);
+                                        return processes.Length > 0;
+                                    },
+                                    CommandLineOptions.Default.StartProcessTimeout*1000);
+                            }
+                            foreach (var p in processes)
+                            {
+                                p.WaitForExit();
+                            }
+                        });
                     if (didWeChangedTheMode)
                     {
                         switch (CommandLineOptions.Default.Action)
@@ -197,19 +196,19 @@
 
             new Thread(
                 () =>
+                {
+                    while (true)
                     {
-                        while (true)
+                        if (
+                            !Utility.DefaultOnException(
+                                () => Application.OpenForms.Cast<Form>().Any(form => form.Visible)))
                         {
-                            if (
-                                !Utility.DefaultOnException(
-                                    () => Application.OpenForms.Cast<Form>().Any(form => form.Visible)))
-                            {
-                                Application.Exit();
-                                return;
-                            }
-                            Thread.Sleep(100);
+                            Application.Exit();
+                            return;
                         }
-                    }).Start();
+                        Thread.Sleep(100);
+                    }
+                }).Start();
             Application.Run();
         }
     }

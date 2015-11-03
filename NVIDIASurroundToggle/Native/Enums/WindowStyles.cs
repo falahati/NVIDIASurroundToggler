@@ -1,7 +1,7 @@
-﻿namespace NVIDIASurroundToggle.Native.Enums
-{
-    using System;
+﻿using System;
 
+namespace NVIDIASurroundToggle.Native.Enums
+{
     [Flags]
     public enum WindowStyles : uint
     {

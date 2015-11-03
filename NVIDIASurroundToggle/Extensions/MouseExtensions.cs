@@ -1,23 +1,22 @@
-﻿namespace NVIDIASurroundToggle.Extensions
+﻿using System.Windows;
+using TestStack.White.InputDevices;
+
+namespace NVIDIASurroundToggle.Extensions
 {
-    using System.Windows;
-
-    using TestStack.White.InputDevices;
-
     public static class MouseExtensions
     {
-        private static Point? mouseLastPosition;
+        private static Point? _mouseLastPosition;
 
         public static void SavePosition(this Mouse m)
         {
-            mouseLastPosition = m.Location;
+            _mouseLastPosition = m.Location;
         }
 
         public static void RestoreLocation(this Mouse m)
         {
-            if (mouseLastPosition != null)
+            if (_mouseLastPosition != null)
             {
-                m.Location = mouseLastPosition.Value;
+                m.Location = _mouseLastPosition.Value;
             }
         }
     }

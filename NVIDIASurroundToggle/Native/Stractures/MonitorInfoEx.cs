@@ -1,7 +1,7 @@
-﻿namespace NVIDIASurroundToggle.Native.Stractures
-{
-    using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
+namespace NVIDIASurroundToggle.Native.Stractures
+{
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct MonitorInfoEx
     {
@@ -13,13 +13,12 @@
 
         public uint Flags;
 
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-        public string DeviceName;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string DeviceName;
 
         public MonitorInfoEx Init()
         {
-            this.DeviceName = string.Empty;
-            this.Size = Marshal.SizeOf(this);
+            DeviceName = string.Empty;
+            Size = Marshal.SizeOf(this);
             return this;
         }
     }

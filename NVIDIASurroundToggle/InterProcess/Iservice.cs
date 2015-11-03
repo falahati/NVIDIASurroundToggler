@@ -1,7 +1,7 @@
-﻿namespace NVIDIASurroundToggle.InterProcess
-{
-    using System.ServiceModel;
+﻿using System.ServiceModel;
 
+namespace NVIDIASurroundToggle.InterProcess
+{
     [ServiceContract]
     public interface IService
     {

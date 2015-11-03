@@ -1,7 +1,7 @@
-﻿namespace NVIDIASurroundToggle.Native.Stractures
-{
-    using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
+namespace NVIDIASurroundToggle.Native.Stractures
+{
     [StructLayout(LayoutKind.Sequential)]
     public struct Point
     {

@@ -1,39 +1,33 @@
-﻿namespace NVIDIASurroundToggle
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Windows;
+using System.Windows.Automation;
+using Castle.Core.Internal;
+using Microsoft.Win32;
+using NVIDIASurroundToggle.Extensions;
+using NVIDIASurroundToggle.Native;
+using NVIDIASurroundToggle.Native.Enums;
+using NVIDIASurroundToggle.Native.Stractures;
+using NVIDIASurroundToggle.Properties;
+using NVIDIASurroundToggle.Resources;
+using TestStack.White;
+using TestStack.White.InputDevices;
+using TestStack.White.UIItems;
+using TestStack.White.UIItems.Finders;
+using TestStack.White.UIItems.ListBoxItems;
+using Rect = NVIDIASurroundToggle.Native.Stractures.Rect;
+
+namespace NVIDIASurroundToggle
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using System.Windows;
-    using System.Windows.Automation;
-
-    using Castle.Core.Internal;
-
-    using Microsoft.Win32;
-
-    using NVIDIASurroundToggle.Extensions;
-    using NVIDIASurroundToggle.Native;
-    using NVIDIASurroundToggle.Native.Enums;
-    using NVIDIASurroundToggle.Native.Stractures;
-    using NVIDIASurroundToggle.Properties;
-    using NVIDIASurroundToggle.Resources;
-
-    using TestStack.White;
-    using TestStack.White.InputDevices;
-    using TestStack.White.UIItems;
-    using TestStack.White.UIItems.Finders;
-    using TestStack.White.UIItems.ListBoxItems;
-    using TestStack.White.UIItems.WindowItems;
-
-    using Rect = NVIDIASurroundToggle.Native.Stractures.Rect;
-
     public static class Surround
     {
         public static bool EnableSurround(bool showControls = true)
         {
-            bool result = false;
+            var result = false;
             if (!IsBusy())
             {
                 new FrmSplash(() => result = ChangeNVidiaDisplayMode(true), showControls).ShowDialog();
@@ -43,7 +37,7 @@
 
         public static bool DisableSurround(bool showControls = true)
         {
-            bool result = false;
+            var result = false;
             if (!IsBusy())
             {
                 new FrmSplash(() => result = ChangeNVidiaDisplayMode(false), showControls).ShowDialog();
@@ -53,7 +47,7 @@
 
         public static bool ToggleSurround(bool showControls = true)
         {
-            bool result = false;
+            var result = false;
             if (!IsBusy())
             {
                 new FrmSplash(() => result = ChangeNVidiaDisplayMode(null), showControls).ShowDialog();
@@ -69,7 +63,7 @@
         private static bool AutomateSurroundSettings(Application application)
         {
             // Waiting for form to become visible
-            Window setupDialog = Utility.DefaultOnException(() => application.GetWindow("NVIDIA Set Up Surround"));
+            var setupDialog = Utility.DefaultOnException(() => application.GetWindow("NVIDIA Set Up Surround"));
             if (setupDialog == null)
             {
                 return true; // Control Panel somehow knows the settings
@@ -83,11 +77,11 @@
                 FrmSplash.Instance.Focus();
                 System.Windows.Forms.Application.DoEvents();
 
-                ComboBox topologyDropdown =
+                var topologyDropdown =
                     Utility.DefaultOnException(() => setupDialog.Get<ComboBox>(SearchCriteria.ByAutomationId("3484")));
-                ComboBox resolutionDropdown =
+                var resolutionDropdown =
                     Utility.DefaultOnException(() => setupDialog.Get<ComboBox>(SearchCriteria.ByAutomationId("3486")));
-                ComboBox refreshRateDropdown =
+                var refreshRateDropdown =
                     Utility.DefaultOnException(() => setupDialog.Get<ComboBox>(SearchCriteria.ByAutomationId("3487")));
 
                 setupDialog.HideMinimize();
@@ -139,14 +133,14 @@
                             {
                                 Utility.DoTimeout(
                                     () =>
-                                        {
-                                            Mouse.Instance.Location = cb.Bounds.Location + new Vector(22, 7);
-                                            setupDialog.ExecuteAutomationAction(() => Mouse.Instance.Click());
-                                            Mouse.Instance.RestoreLocation();
-                                            FrmSplash.Instance.Focus();
-                                            System.Windows.Forms.Application.DoEvents();
-                                            return cb.Checked;
-                                        });
+                                    {
+                                        Mouse.Instance.Location = cb.Bounds.Location + new Vector(22, 7);
+                                        setupDialog.ExecuteAutomationAction(() => Mouse.Instance.Click());
+                                        Mouse.Instance.RestoreLocation();
+                                        FrmSplash.Instance.Focus();
+                                        System.Windows.Forms.Application.DoEvents();
+                                        return cb.Checked;
+                                    });
                                 break;
                             }
                         }
@@ -205,22 +199,22 @@
                     // Let's see if the provided settings are satisfying
                     if (Utility.DoTimeout(
                         () =>
-                            {
-                                setupDialog.WaitWhileBusy();
-                                return enableButton.Enabled;
-                            }))
+                        {
+                            setupDialog.WaitWhileBusy();
+                            return enableButton.Enabled;
+                        }))
                     {
                         var result = Utility.DoTimeout(
                             () =>
-                                {
-                                    setupDialog.ExecuteAutomationAction(
-                                        () => Utility.ContinueException(() => enableButton.Click()));
-                                    Mouse.Instance.RestoreLocation();
-                                    System.Windows.Forms.Application.DoEvents();
-                                    application.WaitWhileBusy();
-                                    return !enableButton.Enabled
-                                           || enableButton.Text.ToLower().Contains("Disable".ToLower());
-                                });
+                            {
+                                setupDialog.ExecuteAutomationAction(
+                                    () => Utility.ContinueException(() => enableButton.Click()));
+                                Mouse.Instance.RestoreLocation();
+                                System.Windows.Forms.Application.DoEvents();
+                                application.WaitWhileBusy();
+                                return !enableButton.Enabled
+                                       || enableButton.Text.ToLower().Contains("Disable".ToLower());
+                            });
                         Utility.ContinueException(() => setupDialog.Close());
                         if (result)
                         {
@@ -240,7 +234,7 @@
                 // Show the form and lets user to decide what to do
                 setupDialog.ShowTopMost();
                 Mouse.Instance.Location = setupDialog.Location
-                                          + new Vector(setupDialog.Bounds.Width / 2, setupDialog.Bounds.Height / 2);
+                                          + new Vector(setupDialog.Bounds.Width/2, setupDialog.Bounds.Height/2);
                 Mouse.Instance.SavePosition();
 
                 while (!setupDialog.IsClosed)
@@ -270,42 +264,38 @@
 
                         Utility.ContinueException(
                             () =>
-                                {
-                                    Settings.Default.Bezel1 = (bezel1TextBox != null
-                                                               && !string.IsNullOrWhiteSpace(bezel1TextBox.Text))
-                                                                  ? bezel1TextBox.Text.TryParseIntOrDefault()
-                                                                  : 0;
-                                    Settings.Default.Bezel2 = (bezel2TextBox != null
-                                                               && !string.IsNullOrWhiteSpace(bezel2TextBox.Text))
-                                                                  ? bezel2TextBox.Text.TryParseIntOrDefault()
-                                                                  : 0;
-                                    Settings.Default.Bezel3 = (bezel3TextBox != null
-                                                               && !string.IsNullOrWhiteSpace(bezel3TextBox.Text))
-                                                                  ? bezel3TextBox.Text.TryParseIntOrDefault()
-                                                                  : 0;
-                                    Settings.Default.Bezel4 = (bezel4TextBox != null
-                                                               && !string.IsNullOrWhiteSpace(bezel4TextBox.Text))
-                                                                  ? bezel4TextBox.Text.TryParseIntOrDefault()
-                                                                  : 0;
-                                });
+                            {
+                                Settings.Default.Bezel1 = (!string.IsNullOrWhiteSpace(bezel1TextBox?.Text))
+                                    ? bezel1TextBox.Text.TryParseIntOrDefault()
+                                    : 0;
+                                Settings.Default.Bezel2 = (!string.IsNullOrWhiteSpace(bezel2TextBox?.Text))
+                                    ? bezel2TextBox.Text.TryParseIntOrDefault()
+                                    : 0;
+                                Settings.Default.Bezel3 = (!string.IsNullOrWhiteSpace(bezel3TextBox?.Text))
+                                    ? bezel3TextBox.Text.TryParseIntOrDefault()
+                                    : 0;
+                                Settings.Default.Bezel4 = (!string.IsNullOrWhiteSpace(bezel4TextBox?.Text))
+                                    ? bezel4TextBox.Text.TryParseIntOrDefault()
+                                    : 0;
+                            });
 
                         Utility.ContinueException(
                             () =>
+                            {
+                                if (!arrangementPanel.IsOffScreen)
                                 {
-                                    if (!arrangementPanel.IsOffScreen)
-                                    {
-                                        Settings.Default.Arrangement = string.Join(
-                                            "|",
-                                            arrangementPanel.AutomationElement.FindAll(
-                                                TreeScope.Children,
-                                                Condition.TrueCondition)
-                                                .Cast<AutomationElement>()
-                                                .Select(el => new Panel(el, null))
-                                                .OrderBy(panel => panel.Bounds.Right)
-                                                .ThenBy(panel => panel.Bounds.Bottom)
-                                                .Select(panel => panel.Text));
-                                    }
-                                });
+                                    Settings.Default.Arrangement = string.Join(
+                                        "|",
+                                        arrangementPanel.AutomationElement.FindAll(
+                                            TreeScope.Children,
+                                            Condition.TrueCondition)
+                                            .Cast<AutomationElement>()
+                                            .Select(el => new Panel(el, null))
+                                            .OrderBy(panel => panel.Bounds.Right)
+                                            .ThenBy(panel => panel.Bounds.Bottom)
+                                            .Select(panel => panel.Text));
+                                }
+                            });
 
                         setupDialog.WaitWhileBusy();
                         if (enableButton.Text.ToLower().Contains("Disable".ToLower()))
@@ -328,10 +318,10 @@
                 }
                 Utility.ContinueException(
                     () =>
-                        {
-                            setupDialog.Close();
-                            setupDialog.WaitWhileBusy();
-                        });
+                    {
+                        setupDialog.Close();
+                        setupDialog.WaitWhileBusy();
+                    });
                 Settings.Default.Reload();
                 return false;
             }
@@ -347,21 +337,21 @@
         {
             Utility.DoTimeout(
                 () =>
+                {
+                    System.Windows.Forms.Application.DoEvents();
+                    var displays = GetDisplays();
+                    if ((displays.Count > 1)
+                        || (displays.Count == 1 && displays[0].Monitor.Top == 0 && displays[0].Monitor.Left == 0
+                            && displays[0].Monitor.Bottom != 0 && displays[0].Monitor.Right != 0
+                            && (displays[0].Monitor.Right/16 == displays[0].Monitor.Bottom/9
+                                || displays[0].Monitor.Right/16 == displays[0].Monitor.Bottom/10
+                                || displays[0].Monitor.Right/4 == displays[0].Monitor.Bottom/3)))
                     {
-                        System.Windows.Forms.Application.DoEvents();
-                        var displays = GetDisplays();
-                        if ((displays.Count > 1)
-                            || (displays.Count == 1 && displays[0].Monitor.Top == 0 && displays[0].Monitor.Left == 0
-                                && displays[0].Monitor.Bottom != 0 && displays[0].Monitor.Right != 0
-                                && (displays[0].Monitor.Right / 16 == displays[0].Monitor.Bottom / 9
-                                    || displays[0].Monitor.Right / 16 == displays[0].Monitor.Bottom / 10
-                                    || displays[0].Monitor.Right / 4 == displays[0].Monitor.Bottom / 3)))
-                        {
-                            Thread.Sleep(5000);
-                            return true;
-                        }
-                        return false;
-                    },
+                        Thread.Sleep(5000);
+                        return true;
+                    }
+                    return false;
+                },
                 20000,
                 500);
             Cleanup();
@@ -394,17 +384,17 @@
                 CheckBox surroundCheckbox = null;
                 Utility.DoTimeout(
                     () =>
-                        {
-                            window.ExecuteAutomationAction(
-                                () =>
-                                    {
-                                        Utility.ContinueException(() => surroundTreeItem.Click());
-                                        Mouse.Instance.RestoreLocation();
-                                    });
-                            application.WaitWhileBusy();
-                            surroundCheckbox = window.GetChildWindowWithControlId<CheckBox>(1866);
-                            return surroundCheckbox != null;
-                        });
+                    {
+                        window.ExecuteAutomationAction(
+                            () =>
+                            {
+                                Utility.ContinueException(() => surroundTreeItem.Click());
+                                Mouse.Instance.RestoreLocation();
+                            });
+                        application.WaitWhileBusy();
+                        surroundCheckbox = window.GetChildWindowWithControlId<CheckBox>(1866);
+                        return surroundCheckbox != null;
+                    });
                 if (surroundCheckbox == null)
                 {
                     throw new Exception(Language.Surround_Can_t_find_the_surround_settings_);
@@ -420,36 +410,36 @@
                 goSurround = !surroundCheckbox.Checked;
                 var success = window.ExecuteAutomationAction(
                     () =>
-                        {
-                            if (Utility.DoTimeout(
-                                () =>
-                                    {
-                                        Utility.ContinueException(() => surroundCheckbox.Checked = goSurround.Value);
-                                        Mouse.Instance.RestoreLocation();
-                                        window.WaitWhileBusy();
-                                        application.WaitWhileBusy();
-                                        return surroundCheckbox.Checked == goSurround;
-                                    }))
+                    {
+                        if (Utility.DoTimeout(
+                            () =>
                             {
-                                var applyButton =
-                                    Utility.DefaultOnException(
-                                        () => window.Get<Button>(SearchCriteria.ByAutomationId("1021")));
-                                if (applyButton != null && Utility.DoTimeout(
-                                    () =>
-                                        {
-                                            window.ExecuteAutomationAction(
-                                                () => Utility.ContinueException(() => applyButton.Click()));
-                                            Mouse.Instance.RestoreLocation();
-                                            window.WaitWhileBusy();
-                                            application.WaitWhileBusy();
-                                            return applyButton.IsOffScreen || !applyButton.Enabled;
-                                        }))
+                                Utility.ContinueException(() => surroundCheckbox.Checked = goSurround.Value);
+                                Mouse.Instance.RestoreLocation();
+                                window.WaitWhileBusy();
+                                application.WaitWhileBusy();
+                                return surroundCheckbox.Checked == goSurround;
+                            }))
+                        {
+                            var applyButton =
+                                Utility.DefaultOnException(
+                                    () => window.Get<Button>(SearchCriteria.ByAutomationId("1021")));
+                            if (applyButton != null && Utility.DoTimeout(
+                                () =>
                                 {
-                                    return true;
-                                }
+                                    window.ExecuteAutomationAction(
+                                        () => Utility.ContinueException(() => applyButton.Click()));
+                                    Mouse.Instance.RestoreLocation();
+                                    window.WaitWhileBusy();
+                                    application.WaitWhileBusy();
+                                    return applyButton.IsOffScreen || !applyButton.Enabled;
+                                }))
+                            {
+                                return true;
                             }
-                            return false;
-                        });
+                        }
+                        return false;
+                    });
 
                 if (!success)
                 {
@@ -484,47 +474,47 @@
         {
             Process.GetProcesses().Where(pr => pr.ProcessName == "nvcplui").ForEach(
                 pr =>
-                    {
-                        pr.Kill();
-                        pr.WaitForExit();
-                    });
+                {
+                    pr.Kill();
+                    pr.WaitForExit();
+                });
             Utility.ContinueException(
                 () =>
+                {
+                    var key =
+                        RegistryKey.OpenBaseKey(
+                            RegistryHive.CurrentUser,
+                            Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32)
+                            .OpenSubKey(@"SOFTWARE\NVIDIA Corporation");
+                    if (key != null)
                     {
-                        RegistryKey key =
-                            RegistryKey.OpenBaseKey(
-                                RegistryHive.CurrentUser,
-                                Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32)
-                                .OpenSubKey(@"SOFTWARE\NVIDIA Corporation");
-                        if (key != null)
+                        foreach (var subKeyName in key.GetSubKeyNames())
                         {
-                            foreach (var subKeyName in key.GetSubKeyNames())
+                            if (subKeyName.Trim()
+                                .StartsWith("NVControlPanel", StringComparison.CurrentCultureIgnoreCase))
                             {
-                                if (subKeyName.Trim()
-                                    .StartsWith("NVControlPanel", StringComparison.CurrentCultureIgnoreCase))
+                                using (var subkey = key.OpenSubKey(subKeyName))
                                 {
-                                    using (var subkey = key.OpenSubKey(subKeyName))
+                                    if (subkey != null)
                                     {
-                                        if (subkey != null)
+                                        if (subkey.GetSubKeyNames().Contains("Client"))
                                         {
-                                            if (subkey.GetSubKeyNames().Contains("Client"))
+                                            using (var clientSubkey = subkey.OpenSubKey("Client", true))
                                             {
-                                                using (var clientSubkey = subkey.OpenSubKey("Client", true))
+                                                if (clientSubkey != null)
                                                 {
-                                                    if (clientSubkey != null)
-                                                    {
-                                                        clientSubkey.DeleteValue("LastPage", false);
-                                                        clientSubkey.DeleteValue("WindowPlacement", false);
-                                                    }
+                                                    clientSubkey.DeleteValue("LastPage", false);
+                                                    clientSubkey.DeleteValue("WindowPlacement", false);
                                                 }
                                             }
                                         }
                                     }
                                 }
                             }
-                            key.Close();
                         }
-                    });
+                        key.Close();
+                    }
+                });
         }
 
         private static bool ChangeNVidiaDisplayMode(bool? on)
@@ -538,7 +528,7 @@
                     throw new Exception(Language.Surround_NVIDIA_Control_Panel_is_absent_on_this_system_);
                 }
                 var application =
-                    Application.Launch(new ProcessStartInfo(nvcpAddress) { WindowStyle = ProcessWindowStyle.Minimized });
+                    Application.Launch(new ProcessStartInfo(nvcpAddress) {WindowStyle = ProcessWindowStyle.Minimized});
                 application.WaitWhileBusy();
                 Mouse.Instance.SavePosition();
                 var result = AutomateControlPanel(application, on);
@@ -607,15 +597,15 @@
                 IntPtr.Zero,
                 IntPtr.Zero,
                 (IntPtr hMonitor, IntPtr hdcMonitor, ref Rect lprcMonitor, IntPtr dwData) =>
+                {
+                    var mi = new MonitorInfoEx().Init();
+                    var success = Methods.GetMonitorInfo(hMonitor, ref mi);
+                    if (success)
                     {
-                        MonitorInfoEx mi = new MonitorInfoEx().Init();
-                        bool success = Methods.GetMonitorInfo(hMonitor, ref mi);
-                        if (success)
-                        {
-                            result.Add(mi);
-                        }
-                        return true;
-                    },
+                        result.Add(mi);
+                    }
+                    return true;
+                },
                 IntPtr.Zero);
             return result;
         }
@@ -628,7 +618,7 @@
                 var devMode = new DevMode().Init();
                 if (Methods.EnumDisplaySettings(display.DeviceName, DisplaySettingsMode.CurrentSettings, ref devMode))
                 {
-                    settings.Add(new DisplaySetting { DisplayName = display.DeviceName, Devmode = devMode });
+                    settings.Add(new DisplaySetting {DisplayName = display.DeviceName, Devmode = devMode});
                 }
             }
             return settings.ToArray();
@@ -639,36 +629,36 @@
             string result = null;
             Utility.ContinueException(
                 () =>
+                {
+                    var key =
+                        RegistryKey.OpenBaseKey(
+                            RegistryHive.LocalMachine,
+                            Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32)
+                            .OpenSubKey(@"SOFTWARE\NVIDIA Corporation");
+                    if (key != null)
                     {
-                        RegistryKey key =
-                            RegistryKey.OpenBaseKey(
-                                RegistryHive.LocalMachine,
-                                Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32)
-                                .OpenSubKey(@"SOFTWARE\NVIDIA Corporation");
-                        if (key != null)
+                        foreach (var subKeyName in key.GetSubKeyNames())
                         {
-                            foreach (var subKeyName in key.GetSubKeyNames())
+                            if (subKeyName.Trim()
+                                .StartsWith("NVControlPanel", StringComparison.CurrentCultureIgnoreCase))
                             {
-                                if (subKeyName.Trim()
-                                    .StartsWith("NVControlPanel", StringComparison.CurrentCultureIgnoreCase))
+                                using (var subkey = key.OpenSubKey(subKeyName))
                                 {
-                                    using (var subkey = key.OpenSubKey(subKeyName))
+                                    if (subkey != null)
                                     {
-                                        if (subkey != null)
+                                        result = subkey.GetValue("InstalledClient", null) as string;
+                                        if (result != null && File.Exists(result))
                                         {
-                                            result = subkey.GetValue("InstalledClient", null) as string;
-                                            if (result != null && File.Exists(result))
-                                            {
-                                                break;
-                                            }
-                                            result = null;
+                                            break;
                                         }
+                                        result = null;
                                     }
                                 }
                             }
-                            key.Close();
                         }
-                    });
+                        key.Close();
+                    }
+                });
             return result;
         }
     }

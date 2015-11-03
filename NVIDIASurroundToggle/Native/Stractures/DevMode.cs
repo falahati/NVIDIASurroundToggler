@@ -1,82 +1,58 @@
-﻿namespace NVIDIASurroundToggle.Native.Stractures
-{
-    using System;
-    using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
+namespace NVIDIASurroundToggle.Native.Stractures
+{
     [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
     public struct DevMode
     {
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-        [FieldOffset(0)]
-        public string DeviceName;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] [FieldOffset(0)] public string DeviceName;
 
-        [FieldOffset(32)]
-        public short SpecVersion;
+        [FieldOffset(32)] public short SpecVersion;
 
-        [FieldOffset(34)]
-        public short DriverVersion;
+        [FieldOffset(34)] public short DriverVersion;
 
-        [FieldOffset(36)]
-        public short Size;
+        [FieldOffset(36)] public short Size;
 
-        [FieldOffset(38)]
-        public short DriverExtra;
+        [FieldOffset(38)] public short DriverExtra;
 
-        [FieldOffset(40)]
-        public DevModeFields Fields;
+        [FieldOffset(40)] public DevModeFields Fields;
 
-        [FieldOffset(44)]
-        public Point Position;
+        [FieldOffset(44)] public Point Position;
 
-        [FieldOffset(52)]
-        public int DisplayOrientation;
+        [FieldOffset(52)] public int DisplayOrientation;
 
-        [FieldOffset(56)]
-        public int DisplayFixedOutput;
+        [FieldOffset(56)] public int DisplayFixedOutput;
 
-        [FieldOffset(60)]
-        public ColorSpace Color;
+        [FieldOffset(60)] public ColorSpace Color;
 
-        [FieldOffset(62)]
-        public DuplexMode Duplex;
+        [FieldOffset(62)] public DuplexMode Duplex;
 
-        [FieldOffset(64)]
-        public short YResolution;
+        [FieldOffset(64)] public short YResolution;
 
-        [FieldOffset(66)]
-        public short TTOption;
+        [FieldOffset(66)] public short TTOption;
 
-        [FieldOffset(68)]
-        public CollateStatus Collate;
+        [FieldOffset(68)] public CollateStatus Collate;
 
-        [FieldOffset(72)]
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-        public string FormName;
+        [FieldOffset(72)] [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string FormName;
 
-        [FieldOffset(102)]
-        public short LogPixels;
+        [FieldOffset(102)] public short LogPixels;
 
-        [FieldOffset(104)]
-        public int BitsPerPel;
+        [FieldOffset(104)] public int BitsPerPel;
 
-        [FieldOffset(108)]
-        public int PelsWidth;
+        [FieldOffset(108)] public int PelsWidth;
 
-        [FieldOffset(112)]
-        public int PelsHeight;
+        [FieldOffset(112)] public int PelsHeight;
 
-        [FieldOffset(116)]
-        public int DisplayFlags;
+        [FieldOffset(116)] public int DisplayFlags;
 
-        [FieldOffset(116)]
-        public int Nup;
+        [FieldOffset(116)] public int Nup;
 
-        [FieldOffset(120)]
-        public int DisplayFrequency;
+        [FieldOffset(120)] public int DisplayFrequency;
 
         public DevMode Init()
         {
-            this.Size = (short)Marshal.SizeOf(this);
+            Size = (short) Marshal.SizeOf(this);
             return this;
         }
 
@@ -175,13 +151,13 @@
         {
             return
                 new DevMode
-                    {
-                        DriverExtra = 0,
-                        Fields = DevModeFields.Position | DevModeFields.PelsHeight | DevModeFields.PelsWidth,
-                        PelsHeight = 0,
-                        PelsWidth = 0,
-                        Position = new Point { X = 0, Y = 0 }
-                    }.Init();
+                {
+                    DriverExtra = 0,
+                    Fields = DevModeFields.Position | DevModeFields.PelsHeight | DevModeFields.PelsWidth,
+                    PelsHeight = 0,
+                    PelsWidth = 0,
+                    Position = new Point {X = 0, Y = 0}
+                }.Init();
         }
     }
 }
