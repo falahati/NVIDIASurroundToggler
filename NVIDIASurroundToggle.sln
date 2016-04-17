@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVIDIASurroundToggle", "NVIDIASurroundToggle\NVIDIASurroundToggle.csproj", "{66861A93-06D5-4DE0-9C1C-6DED9DBD22DE}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "NVIDIASurroundToggle.Setup", "NVIDIASurroundToggle.Setup\NVIDIASurroundToggle.Setup.isproj", "{F9F1EF22-BC2B-4E30-B251-DF01118A61A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,9 @@ Global
 		{66861A93-06D5-4DE0-9C1C-6DED9DBD22DE}.Debug|x86.Build.0 = Debug|x86
 		{66861A93-06D5-4DE0-9C1C-6DED9DBD22DE}.Release|x86.ActiveCfg = Release|x86
 		{66861A93-06D5-4DE0-9C1C-6DED9DBD22DE}.Release|x86.Build.0 = Release|x86
+		{F9F1EF22-BC2B-4E30-B251-DF01118A61A2}.Debug|x86.ActiveCfg = SingleImage
+		{F9F1EF22-BC2B-4E30-B251-DF01118A61A2}.Release|x86.ActiveCfg = SingleImage
+		{F9F1EF22-BC2B-4E30-B251-DF01118A61A2}.Release|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
