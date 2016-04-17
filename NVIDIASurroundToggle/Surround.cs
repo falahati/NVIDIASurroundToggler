@@ -63,7 +63,7 @@ namespace NVIDIASurroundToggle
         private static bool AutomateSurroundSettings(Application application)
         {
             // Waiting for form to become visible
-            var setupDialog = Utility.DefaultOnException(() => application.GetWindow("NVIDIA Set Up Surround"));
+            var setupDialog = Utility.DefaultOnException(() => application.GetWindow(NVidiaLocalization.NVIDIA_Surround_Caption_NVIDIA_Set_Up_Surround));
             if (setupDialog == null)
             {
                 return true; // Control Panel somehow knows the settings
@@ -213,7 +213,7 @@ namespace NVIDIASurroundToggle
                                 System.Windows.Forms.Application.DoEvents();
                                 application.WaitWhileBusy();
                                 return !enableButton.Enabled
-                                       || enableButton.Text.ToLower().Contains("Disable".ToLower());
+                                       || enableButton.Text.ToLower().Contains(NVidiaLocalization.NVIDIA_Surround_DisableButton_Disable.ToLower());
                             });
                         Utility.ContinueException(() => setupDialog.Close());
                         if (result)
@@ -298,7 +298,7 @@ namespace NVIDIASurroundToggle
                             });
 
                         setupDialog.WaitWhileBusy();
-                        if (enableButton.Text.ToLower().Contains("Disable".ToLower()))
+                        if (enableButton.Text.ToLower().Contains(NVidiaLocalization.NVIDIA_Surround_DisableButton_Disable.ToLower()))
                         {
                             Settings.Default.Save();
                             setupDialog.Close();
@@ -372,7 +372,7 @@ namespace NVIDIASurroundToggle
 
         private static bool AutomateControlPanel(Application application, bool? goSurround)
         {
-            var window = application.GetWindow("NVIDIA Control Panel");
+            var window = application.GetWindow(NVidiaLocalization.NVIDIA_ControlPanel_Caption_NVIDIA_Control_Panel);
             try
             {
                 window.HideMinimize(); // Hiding also applies the settings we want

@@ -154,5 +154,17 @@ namespace NVIDIASurroundToggle.Properties {
                 this["FirstRun"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ControlPanelLanguage {
+            get {
+                return ((string)(this["ControlPanelLanguage"]));
+            }
+            set {
+                this["ControlPanelLanguage"] = value;
+            }
+        }
     }
 }

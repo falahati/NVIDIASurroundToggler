@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -36,6 +37,21 @@ namespace NVIDIASurroundToggle
                     }
                     Settings.Default.FirstRun = false;
                     Settings.Default.Save();
+                }
+                if (!string.IsNullOrWhiteSpace(CommandLineOptions.Default.Language) ||
+                    !string.IsNullOrWhiteSpace(Settings.Default.ControlPanelLanguage))
+                {
+                    try
+                    {
+                        NVidiaLocalization.Culture =
+                            new CultureInfo(string.IsNullOrWhiteSpace(CommandLineOptions.Default.Language)
+                                ? Settings.Default.ControlPanelLanguage
+                                : CommandLineOptions.Default.Language);
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
                 }
                 if (string.IsNullOrWhiteSpace(CommandLineOptions.Default.StartFilename))
                 {

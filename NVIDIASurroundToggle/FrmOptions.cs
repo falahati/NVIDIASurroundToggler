@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using NVIDIASurroundToggle.Properties;
@@ -16,6 +17,29 @@ namespace NVIDIASurroundToggle
             lbl_version.Text = string.Format(
                 Language.FrmOptions_By_Soroush_Falahati_v,
                 Assembly.GetEntryAssembly().GetName().Version.ToString(2));
+            cb_lang.Items.Add(new ComboBoxItem("Windows Default") { Tag = string.Empty });
+            cb_lang.Items.Add(new ComboBoxItem("English") {Tag = "en-US"});
+            cb_lang.Items.Add(new ComboBoxItem("Deutsch") {Tag = "de-DE"});
+            cb_lang.SelectedIndex = 0;
+            if (!string.IsNullOrWhiteSpace(Settings.Default.ControlPanelLanguage))
+            {
+                var selectedLanguage = cb_lang.SelectedItem =
+                    cb_lang.Items.Cast<ComboBoxItem>()
+                        .FirstOrDefault(
+                            item =>
+                                Settings.Default.ControlPanelLanguage.Equals(item.Tag as string,
+                                    StringComparison.CurrentCultureIgnoreCase));
+                if (selectedLanguage == null)
+                {
+                    selectedLanguage = new ComboBoxItem(Settings.Default.ControlPanelLanguage)
+                    {
+                        Tag = Settings.Default.ControlPanelLanguage
+                    };
+                    cb_lang.Items.Add(selectedLanguage);
+                }
+                cb_lang.SelectedItem = selectedLanguage;
+            }
+            cb_lang.SelectedIndexChanged += cb_lang_SelectedIndexChanged;
             RefreshButtons();
         }
 
@@ -85,5 +109,16 @@ namespace NVIDIASurroundToggle
         {
             Process.Start("http://falahati.net");
         }
+
+        private void cb_lang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = cb_lang.SelectedItem as ComboBoxItem;
+            if (item != null)
+            {
+                Settings.Default.ControlPanelLanguage = item.Tag as string ?? Settings.Default.ControlPanelLanguage;
+                Settings.Default.Save();
+            }
+        }
+        
     }
 }

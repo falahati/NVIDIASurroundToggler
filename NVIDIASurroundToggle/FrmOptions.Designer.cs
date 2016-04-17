@@ -34,6 +34,8 @@
             this.btn_surround = new System.Windows.Forms.Button();
             this.btn_clean = new System.Windows.Forms.Button();
             this.lbl_version = new System.Windows.Forms.LinkLabel();
+            this.cb_lang = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_extended
@@ -84,10 +86,28 @@
             this.lbl_version.Location = new System.Drawing.Point(9, 302);
             this.lbl_version.Name = "lbl_version";
             this.lbl_version.Size = new System.Drawing.Size(124, 13);
-            this.lbl_version.TabIndex = 3;
+            this.lbl_version.TabIndex = 5;
             this.lbl_version.TabStop = true;
             this.lbl_version.Text = "By Soroush Falahati v{0}";
             this.lbl_version.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblVersionLinkClicked);
+            // 
+            // cb_lang
+            // 
+            this.cb_lang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_lang.FormattingEnabled = true;
+            this.cb_lang.Location = new System.Drawing.Point(291, 299);
+            this.cb_lang.Name = "cb_lang";
+            this.cb_lang.Size = new System.Drawing.Size(121, 21);
+            this.cb_lang.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(196, 302);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "NVidia Language";
             // 
             // FrmOptions
             // 
@@ -95,6 +115,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(424, 324);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cb_lang);
             this.Controls.Add(this.lbl_version);
             this.Controls.Add(this.btn_clean);
             this.Controls.Add(this.btn_surround);
@@ -117,5 +139,7 @@
         private System.Windows.Forms.Button btn_surround;
         private System.Windows.Forms.Button btn_clean;
         private System.Windows.Forms.LinkLabel lbl_version;
+        private System.Windows.Forms.ComboBox cb_lang;
+        private System.Windows.Forms.Label label1;
     }
 }

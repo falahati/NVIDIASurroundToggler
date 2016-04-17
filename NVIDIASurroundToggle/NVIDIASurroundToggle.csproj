@@ -96,6 +96,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxItem.cs" />
     <Compile Include="CommandLineOptions.cs" />
     <Compile Include="DisplaySetting.cs" />
     <Compile Include="Extensions\MouseExtensions.cs" />
@@ -144,6 +145,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\NVidiaLocalization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NVidiaLocalization.resx</DependentUpon>
+    </Compile>
     <Compile Include="Surround.cs" />
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="FrmOptions.resx">
@@ -170,6 +176,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Language.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\NVidiaLocalization.de-DE.resx" />
+    <EmbeddedResource Include="Resources\NVidiaLocalization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NVidiaLocalization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

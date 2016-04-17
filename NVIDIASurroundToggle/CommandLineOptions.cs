@@ -51,6 +51,10 @@ namespace NVIDIASurroundToggle
             DefaultValue = 20)]
         public int StartProcessTimeout { get; set; }
 
+        [Option('l', "lang",
+            HelpText = "Providing the language of NVidia Control Panel, if different from the default value or the Windows UI culture. (en-US, de-DE)")]
+        public string Language { get; set; }
+
         public static CommandLineOptions Default
         {
             get
@@ -77,7 +81,7 @@ namespace NVIDIASurroundToggle
         public string GetUsage()
         {
             var help = HelpText.AutoBuild(this, current => HelpText.DefaultParsingErrorsHandler(this, current));
-            MessageBox.Show(help, Language.CommandLineOptions_Help, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(help, Resources.Language.CommandLineOptions_Help, MessageBoxButtons.OK, MessageBoxIcon.Information);
             Environment.Exit(0);
             return help;
         }
