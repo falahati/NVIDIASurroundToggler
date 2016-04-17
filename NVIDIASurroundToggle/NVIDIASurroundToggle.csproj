@@ -178,6 +178,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\NVidiaLocalization.de-DE.resx" />
+    <EmbeddedResource Include="Resources\NVidiaLocalization.nl-NL.resx" />
     <EmbeddedResource Include="Resources\NVidiaLocalization.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>NVidiaLocalization.Designer.cs</LastGenOutput>

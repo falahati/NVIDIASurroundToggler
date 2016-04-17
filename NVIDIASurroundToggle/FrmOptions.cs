@@ -20,6 +20,7 @@ namespace NVIDIASurroundToggle
             cb_lang.Items.Add(new ComboBoxItem("Windows Default") { Tag = string.Empty });
             cb_lang.Items.Add(new ComboBoxItem("English") {Tag = "en-US"});
             cb_lang.Items.Add(new ComboBoxItem("Deutsch") {Tag = "de-DE"});
+            cb_lang.Items.Add(new ComboBoxItem("Dutch") {Tag = "nl-NL"});
             cb_lang.SelectedIndex = 0;
             if (!string.IsNullOrWhiteSpace(Settings.Default.ControlPanelLanguage))
             {
