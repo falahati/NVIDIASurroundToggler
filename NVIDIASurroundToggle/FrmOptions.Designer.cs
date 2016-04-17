@@ -30,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOptions));
             this.btn_extended = new System.Windows.Forms.Button();
             this.btn_surround = new System.Windows.Forms.Button();
             this.btn_clean = new System.Windows.Forms.Button();
@@ -46,7 +45,7 @@
             this.btn_extended.Name = "btn_extended";
             this.btn_extended.Size = new System.Drawing.Size(400, 90);
             this.btn_extended.TabIndex = 0;
-            this.btn_extended.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup_;
+            this.btn_extended.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup;
             this.btn_extended.UseVisualStyleBackColor = false;
             this.btn_extended.Click += new System.EventHandler(this.BtnExtendedClick);
             this.btn_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOptionsKeyDown);
@@ -60,7 +59,7 @@
             this.btn_surround.Name = "btn_surround";
             this.btn_surround.Size = new System.Drawing.Size(400, 90);
             this.btn_surround.TabIndex = 1;
-            this.btn_surround.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_;
+            this.btn_surround.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode;
             this.btn_surround.UseVisualStyleBackColor = false;
             this.btn_surround.Click += new System.EventHandler(this.BtnSurroundClick);
             this.btn_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOptionsKeyDown);
@@ -101,7 +100,7 @@
             this.Controls.Add(this.btn_surround);
             this.Controls.Add(this.btn_extended);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Icon = Properties.Resources.Surround;
+            this.Icon = global::NVIDIASurroundToggle.Properties.Resources.Surround;
             this.Name = "FrmOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options";

@@ -72,61 +72,61 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to By Soroush Falahati v{0}.
         /// </summary>
-        internal static string FrmOptions_By_Soroush_Falahati_v_0_ {
+        internal static string FrmOptions_By_Soroush_Falahati_v {
             get {
-                return ResourceManager.GetString("FrmOptions_By_Soroush_Falahati_v_0_", resourceCulture);
+                return ResourceManager.GetString("FrmOptions_By_Soroush_Falahati_v", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to I believe that I have an idea about how you expect your surround setup to be. If you think that I am wrong, click here and I will ask you about it the next time you tried to enable the surround mode..
         /// </summary>
-        internal static string FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_ {
+        internal static string FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode {
             get {
                 return ResourceManager.GetString("FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup" +
                         "_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the" +
-                        "_next_time_you_tried_to_enable_the_surround_mode_", resourceCulture);
+                        "_next_time_you_tried_to_enable_the_surround_mode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to I don&apos;t know anything about your monitor arrangement in extended mode. Next time, I will take a copy of your settings before changing to surround mode..
         /// </summary>
-        internal static string FrmOptions_I_don_t_know_anything_about_your_monitor_arrangement_in_extended_mode__Next_time__I_will_take_a_copy_of_your_settings_before_changing_to_surround_mode_ {
+        internal static string FrmOptions_I_don_t_know_anything_about_your_monitor_arrangement_in_extended_mode__Next_time__I_will_take_a_copy_of_your_settings_before_changing_to_surround_mode {
             get {
                 return ResourceManager.GetString("FrmOptions_I_don_t_know_anything_about_your_monitor_arrangement_in_extended_mode_" +
                         "_Next_time__I_will_take_a_copy_of_your_settings_before_changing_to_surround_mode" +
-                        "_", resourceCulture);
+                        "", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to I have no idea about your surround settings. I will ask you about it the next time you tried to enable the surround mode..
         /// </summary>
-        internal static string FrmOptions_I_have_no_idea_about_your_surround_settings__I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_ {
+        internal static string FrmOptions_I_have_no_idea_about_your_surround_settings__I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode {
             get {
                 return ResourceManager.GetString("FrmOptions_I_have_no_idea_about_your_surround_settings__I_will_ask_you_about_it_t" +
-                        "he_next_time_you_tried_to_enable_the_surround_mode_", resourceCulture);
+                        "he_next_time_you_tried_to_enable_the_surround_mode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to I took a copy of your settings last time you was in extended mode. So I may have an idea about your desired configuration. Click here to remove this data and to ask you again later to reorganize your setup..
         /// </summary>
-        internal static string FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup_ {
+        internal static string FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup {
             get {
                 return ResourceManager.GetString("FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_" +
                         "I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_d" +
-                        "ata_and_to_ask_you_again_later_to_reorganize_your_setup_", resourceCulture);
+                        "ata_and_to_ask_you_again_later_to_reorganize_your_setup", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to I tried to solve the problems, you happy now?.
         /// </summary>
-        internal static string FrmOptions_I_tried_to_solve_the_problems__you_happy_now_ {
+        internal static string FrmOptions_I_tried_to_solve_the_problems__you_happy_now {
             get {
-                return ResourceManager.GetString("FrmOptions_I_tried_to_solve_the_problems__you_happy_now_", resourceCulture);
+                return ResourceManager.GetString("FrmOptions_I_tried_to_solve_the_problems__you_happy_now", resourceCulture);
             }
         }
         
@@ -172,36 +172,36 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Failed, Closing ....
         /// </summary>
-        internal static string FrmSplash_Failed__Closing____ {
+        internal static string FrmSplash_Failed__Closing {
             get {
-                return ResourceManager.GetString("FrmSplash_Failed__Closing____", resourceCulture);
+                return ResourceManager.GetString("FrmSplash_Failed__Closing", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please wait ....
         /// </summary>
-        internal static string FrmSplash_Please_wait____ {
+        internal static string FrmSplash_Please_wait {
             get {
-                return ResourceManager.GetString("FrmSplash_Please_wait____", resourceCulture);
+                return ResourceManager.GetString("FrmSplash_Please_wait", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Starting in {0} seconds ....
         /// </summary>
-        internal static string FrmSplash_Starting_in__0__seconds____ {
+        internal static string FrmSplash_Starting_in_seconds {
             get {
-                return ResourceManager.GetString("FrmSplash_Starting_in__0__seconds____", resourceCulture);
+                return ResourceManager.GetString("FrmSplash_Starting_in_seconds", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to There is no active splash screen..
         /// </summary>
-        internal static string FrmSplash_There_is_no_active_splash_screen_ {
+        internal static string FrmSplash_There_is_no_active_splash_screen {
             get {
-                return ResourceManager.GetString("FrmSplash_There_is_no_active_splash_screen_", resourceCulture);
+                return ResourceManager.GetString("FrmSplash_There_is_no_active_splash_screen", resourceCulture);
             }
         }
         
@@ -227,9 +227,9 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Bad file selected. Please select an executable file..
         /// </summary>
-        internal static string FrmTools_Bad_file_selected__Please_select_an_executable_file_ {
+        internal static string FrmTools_Bad_file_selected__Please_select_an_executable_file {
             get {
-                return ResourceManager.GetString("FrmTools_Bad_file_selected__Please_select_an_executable_file_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Bad_file_selected__Please_select_an_executable_file", resourceCulture);
             }
         }
         
@@ -281,27 +281,27 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Failed to create the shortcut. Unexpected exception occurred..
         /// </summary>
-        internal static string FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred_ {
+        internal static string FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred {
             get {
-                return ResourceManager.GetString("FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Open {0} in extended mode..
         /// </summary>
-        internal static string FrmTools_Open__0__in_extended_mode_ {
+        internal static string FrmTools_Open_in_extended_mode {
             get {
-                return ResourceManager.GetString("FrmTools_Open__0__in_extended_mode_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Open_in_extended_mode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Open {0} in surround mode..
         /// </summary>
-        internal static string FrmTools_Open__0__in_surround_mode_ {
+        internal static string FrmTools_Open_in_surround_mode {
             get {
-                return ResourceManager.GetString("FrmTools_Open__0__in_surround_mode_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Open_in_surround_mode", resourceCulture);
             }
         }
         
@@ -326,18 +326,18 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Opens the program&apos;s configuration screen..
         /// </summary>
-        internal static string FrmTools_Opens_the_program_s_configuration_screen_ {
+        internal static string FrmTools_Opens_the_program_s_configuration_screen {
             get {
-                return ResourceManager.GetString("FrmTools_Opens_the_program_s_configuration_screen_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Opens_the_program_s_configuration_screen", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Opens the program&apos;s tools screen..
         /// </summary>
-        internal static string FrmTools_Opens_the_program_s_tools_screen_ {
+        internal static string FrmTools_Opens_the_program_s_tools_screen {
             get {
-                return ResourceManager.GetString("FrmTools_Opens_the_program_s_tools_screen_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Opens_the_program_s_tools_screen", resourceCulture);
             }
         }
         
@@ -371,9 +371,9 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Shortcut created successfully..
         /// </summary>
-        internal static string FrmTools_Shortcut_created_successfully_ {
+        internal static string FrmTools_Shortcut_created_successfully {
             get {
-                return ResourceManager.GetString("FrmTools_Shortcut_created_successfully_", resourceCulture);
+                return ResourceManager.GetString("FrmTools_Shortcut_created_successfully", resourceCulture);
             }
         }
         
@@ -471,9 +471,9 @@ namespace NVIDIASurroundToggle.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Can not open a named pipe for IPC..
         /// </summary>
-        internal static string Program_Can_not_open_a_named_pipe_for_IPC_ {
+        internal static string Program_Can_not_open_a_named_pipe_for_IPC {
             get {
-                return ResourceManager.GetString("Program_Can_not_open_a_named_pipe_for_IPC_", resourceCulture);
+                return ResourceManager.GetString("Program_Can_not_open_a_named_pipe_for_IPC", resourceCulture);
             }
         }
         
@@ -490,66 +490,66 @@ namespace NVIDIASurroundToggle.Resources {
         ///   Looks up a localized string similar to Fatal Error: 
         ///{0}.
         /// </summary>
-        internal static string Program_Fatal_Error__ {
+        internal static string Program_Fatal_Error_Message {
             get {
-                return ResourceManager.GetString("Program_Fatal Error__", resourceCulture);
+                return ResourceManager.GetString("Program_Fatal_Error_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to You can&apos;t start a process in extended mode when you have another process in surround mode. Close the other program and try again..
         /// </summary>
-        internal static string Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again_ {
+        internal static string Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again {
             get {
                 return ResourceManager.GetString("Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_" +
-                        "in_surround_mode__Close_the_other_program_and_try_again_", resourceCulture);
+                        "in_surround_mode__Close_the_other_program_and_try_again", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to You can&apos;t start a process in surround mode when you have another process in extended mode. Close the other program and try again..
         /// </summary>
-        internal static string Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again_ {
+        internal static string Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again {
             get {
                 return ResourceManager.GetString("Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_" +
-                        "in_extended_mode__Close_the_other_program_and_try_again_", resourceCulture);
+                        "in_extended_mode__Close_the_other_program_and_try_again", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Arrangement panel is not accessible from our side, can&apos;t save your settings..
         /// </summary>
-        internal static string Surround_Arrangement_panel_is_not_accessible_from_our_side__can_t_save_your_settings_ {
+        internal static string Surround_Arrangement_panel_is_not_accessible_from_our_side_can_t_save_your_settings_ {
             get {
-                return ResourceManager.GetString("Surround_Arrangement_panel_is_not_accessible_from_our_side__can_t_save_your_setti" +
-                        "ngs_", resourceCulture);
+                return ResourceManager.GetString("Surround_Arrangement_panel_is_not_accessible_from_our_side_can_t_save_your_settin" +
+                        "gs_", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Can&apos;t find the surround settings..
         /// </summary>
-        internal static string Surround_Can_t_find_the_surround_settings_ {
+        internal static string Surround_Can_t_find_the_surround_settings {
             get {
-                return ResourceManager.GetString("Surround_Can_t_find_the_surround_settings_", resourceCulture);
+                return ResourceManager.GetString("Surround_Can_t_find_the_surround_settings", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Failed to change the surround settings..
         /// </summary>
-        internal static string Surround_Failed_to_change_the_surround_settings_ {
+        internal static string Surround_Failed_to_change_the_surround_settings {
             get {
-                return ResourceManager.GetString("Surround_Failed_to_change_the_surround_settings_", resourceCulture);
+                return ResourceManager.GetString("Surround_Failed_to_change_the_surround_settings", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to NVIDIA Control Panel is absent on this system..
         /// </summary>
-        internal static string Surround_NVIDIA_Control_Panel_is_absent_on_this_system_ {
+        internal static string Surround_NVIDIA_Control_Panel_is_absent_on_this_system {
             get {
-                return ResourceManager.GetString("Surround_NVIDIA_Control_Panel_is_absent_on_this_system_", resourceCulture);
+                return ResourceManager.GetString("Surround_NVIDIA_Control_Panel_is_absent_on_this_system", resourceCulture);
             }
         }
     }

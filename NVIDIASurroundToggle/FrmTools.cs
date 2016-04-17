@@ -61,12 +61,12 @@ namespace NVIDIASurroundToggle
             else if (rb_com_options.Checked)
             {
                 args.Add("-aOpenOptions");
-                description = Language.FrmTools_Opens_the_program_s_configuration_screen_;
+                description = Language.FrmTools_Opens_the_program_s_configuration_screen;
             }
             else if (rb_com_tools.Checked)
             {
                 args.Add("-aOpenTools");
-                description = Language.FrmTools_Opens_the_program_s_tools_screen_;
+                description = Language.FrmTools_Opens_the_program_s_tools_screen;
             }
             var argsString = string.Join(" ", args);
 
@@ -76,7 +76,7 @@ namespace NVIDIASurroundToggle
                 if (Utility.CreateShortcut(dialog_save.FileName, toolname, argsString, null, description))
                 {
                     MessageBox.Show(
-                        Language.FrmTools_Shortcut_created_successfully_,
+                        Language.FrmTools_Shortcut_created_successfully,
                         Language.FrmTools_Shortcut,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -84,7 +84,7 @@ namespace NVIDIASurroundToggle
                 else
                 {
                     MessageBox.Show(
-                        Language.FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred_,
+                        Language.FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred,
                         Language.FrmTools_Shortcut,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Exclamation);
@@ -110,12 +110,12 @@ namespace NVIDIASurroundToggle
             if (rb_app_surround.Checked)
             {
                 args.Add("-aGoSurround");
-                description = string.Format(Language.FrmTools_Open__0__in_surround_mode_, programName);
+                description = string.Format(Language.FrmTools_Open_in_surround_mode, programName);
             }
             else if (rb_app_extended.Checked)
             {
                 args.Add("-aGoExtended");
-                description = string.Format(Language.FrmTools_Open__0__in_extended_mode_, programName);
+                description = string.Format(Language.FrmTools_Open_in_extended_mode, programName);
             }
             args.Add($"-e \"{txt_app_executable.Text}\"");
             if (cb_app_args.Checked && !string.IsNullOrWhiteSpace(txt_app_args.Text))
@@ -135,7 +135,7 @@ namespace NVIDIASurroundToggle
                 if (Utility.CreateShortcut(dialog_save.FileName, toolname, argsString, icon, description))
                 {
                     MessageBox.Show(
-                        Language.FrmTools_Shortcut_created_successfully_,
+                        Language.FrmTools_Shortcut_created_successfully,
                         Language.FrmTools_Shortcut,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -143,7 +143,7 @@ namespace NVIDIASurroundToggle
                 else
                 {
                     MessageBox.Show(
-                        Language.FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred_,
+                        Language.FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred,
                         Language.FrmTools_Shortcut,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Exclamation);
@@ -166,7 +166,7 @@ namespace NVIDIASurroundToggle
                 else
                 {
                     MessageBox.Show(
-                        Language.FrmTools_Bad_file_selected__Please_select_an_executable_file_,
+                        Language.FrmTools_Bad_file_selected__Please_select_an_executable_file,
                         Language.FrmTools_App_Select,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Exclamation);

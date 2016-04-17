@@ -228,7 +228,7 @@ namespace NVIDIASurroundToggle
                 if (arrangementPanel == null)
                 {
                     throw new Exception(
-                        Language.Surround_Arrangement_panel_is_not_accessible_from_our_side__can_t_save_your_settings_);
+                        Language.Surround_Arrangement_panel_is_not_accessible_from_our_side_can_t_save_your_settings_);
                 }
 
                 // Show the form and lets user to decide what to do
@@ -379,7 +379,7 @@ namespace NVIDIASurroundToggle
                 var surroundTreeItem = window.GetChildWindowWithControlId<UIItem>(4100, 5000);
                 if (surroundTreeItem == null)
                 {
-                    throw new Exception(Language.Surround_Can_t_find_the_surround_settings_);
+                    throw new Exception(Language.Surround_Can_t_find_the_surround_settings);
                 }
                 CheckBox surroundCheckbox = null;
                 Utility.DoTimeout(
@@ -397,7 +397,7 @@ namespace NVIDIASurroundToggle
                     });
                 if (surroundCheckbox == null)
                 {
-                    throw new Exception(Language.Surround_Can_t_find_the_surround_settings_);
+                    throw new Exception(Language.Surround_Can_t_find_the_surround_settings);
                 }
 
                 if (goSurround != null && surroundCheckbox.Checked == goSurround)
@@ -443,7 +443,7 @@ namespace NVIDIASurroundToggle
 
                 if (!success)
                 {
-                    throw new Exception(Language.Surround_Failed_to_change_the_surround_settings_);
+                    throw new Exception(Language.Surround_Failed_to_change_the_surround_settings);
                 }
 
                 var result = true;
@@ -525,7 +525,7 @@ namespace NVIDIASurroundToggle
                 var nvcpAddress = GetNvidiaControlPanelAddress();
                 if (string.IsNullOrWhiteSpace(nvcpAddress))
                 {
-                    throw new Exception(Language.Surround_NVIDIA_Control_Panel_is_absent_on_this_system_);
+                    throw new Exception(Language.Surround_NVIDIA_Control_Panel_is_absent_on_this_system);
                 }
                 var application =
                     Application.Launch(new ProcessStartInfo(nvcpAddress) {WindowStyle = ProcessWindowStyle.Minimized});

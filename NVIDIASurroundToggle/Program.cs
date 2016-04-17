@@ -24,7 +24,7 @@ namespace NVIDIASurroundToggle
             {
                 if (!Service.StartService())
                 {
-                    throw new Exception(Language.Program_Can_not_open_a_named_pipe_for_IPC_);
+                    throw new Exception(Language.Program_Can_not_open_a_named_pipe_for_IPC);
                 }
                 if (Settings.Default.FirstRun)
                 {
@@ -105,7 +105,7 @@ namespace NVIDIASurroundToggle
                                 {
                                     throw new Exception(
                                         Language
-                                            .Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again_);
+                                            .Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again);
                                 }
                                 didWeChangedTheMode = Surround.DisableSurround(false);
                             }
@@ -118,7 +118,7 @@ namespace NVIDIASurroundToggle
                                 {
                                     throw new Exception(
                                         Language
-                                            .Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again_);
+                                            .Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again);
                                 }
                                 didWeChangedTheMode = Surround.EnableSurround(false);
                             }
@@ -187,7 +187,7 @@ namespace NVIDIASurroundToggle
                 Surround.Cleanup();
                 Utility.ToggleTaskbar(true);
                 MessageBox.Show(
-                    string.Format(Language.Program_Fatal_Error__, e.Message),
+                    string.Format(Language.Program_Fatal_Error_Message, e.Message),
                     Language.Program_Fatal_Error,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

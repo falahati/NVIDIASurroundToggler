@@ -34,7 +34,7 @@ namespace NVIDIASurroundToggle
             {
                 if (_instance == null)
                 {
-                    throw new Exception(Language.FrmSplash_There_is_no_active_splash_screen_);
+                    throw new Exception(Language.FrmSplash_There_is_no_active_splash_screen);
                 }
                 return _instance;
             }
@@ -57,7 +57,7 @@ namespace NVIDIASurroundToggle
             _time--;
             if (_time > 0)
             {
-                lbl_message.Text = string.Format(Language.FrmSplash_Starting_in__0__seconds____, _time);
+                lbl_message.Text = string.Format(Language.FrmSplash_Starting_in_seconds, _time);
                 if (!t_hider.Enabled)
                 {
                     t_hider.Start();
@@ -66,7 +66,7 @@ namespace NVIDIASurroundToggle
             else
             {
                 Cursor.Hide();
-                lbl_message.Text = Language.FrmSplash_Please_wait____;
+                lbl_message.Text = Language.FrmSplash_Please_wait;
                 t_hider.Stop();
                 btn_options.Visible = false;
                 btn_tools.Visible = false;
@@ -119,7 +119,7 @@ namespace NVIDIASurroundToggle
 
         private void KillerTick(object sender, EventArgs e)
         {
-            lbl_message.Text = Language.FrmSplash_Failed__Closing____;
+            lbl_message.Text = Language.FrmSplash_Failed__Closing;
             Application.DoEvents();
             Thread.Sleep(5000);
             Close();

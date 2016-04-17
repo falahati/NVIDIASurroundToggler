@@ -117,31 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FrmOptions_I_don_t_know_anything_about_your_monitor_arrangement_in_extended_mode__Next_time__I_will_take_a_copy_of_your_settings_before_changing_to_surround_mode_" xml:space="preserve">
+  <data name="FrmOptions_I_don_t_know_anything_about_your_monitor_arrangement_in_extended_mode__Next_time__I_will_take_a_copy_of_your_settings_before_changing_to_surround_mode" xml:space="preserve">
     <value>I don't know anything about your monitor arrangement in extended mode. Next time, I will take a copy of your settings before changing to surround mode.</value>
   </data>
-  <data name="FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup_" xml:space="preserve">
+  <data name="FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup" xml:space="preserve">
     <value>I took a copy of your settings last time you was in extended mode. So I may have an idea about your desired configuration. Click here to remove this data and to ask you again later to reorganize your setup.</value>
   </data>
-  <data name="FrmOptions_I_have_no_idea_about_your_surround_settings__I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_" xml:space="preserve">
+  <data name="FrmOptions_I_have_no_idea_about_your_surround_settings__I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode" xml:space="preserve">
     <value>I have no idea about your surround settings. I will ask you about it the next time you tried to enable the surround mode.</value>
   </data>
-  <data name="FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode_" xml:space="preserve">
+  <data name="FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode" xml:space="preserve">
     <value>I believe that I have an idea about how you expect your surround setup to be. If you think that I am wrong, click here and I will ask you about it the next time you tried to enable the surround mode.</value>
   </data>
   <data name="FrmOptions_Sometimes__and_especially_when_I_get_confused__I_may_do_things_that_I_did_not_intended_to_do__Like_messing_with_your_taskbar_and_NVIDIA_control_panel__If_something_like_that_happened_to_you__click_here_and_I_do_my_best_to_make_it_right_" xml:space="preserve">
     <value>Sometimes, and especially when I get confused, I may do things that I did not intended to do. Like messing with your taskbar and NVIDIA control panel. If something like that happened to you, click here and I do my best to make it right.</value>
   </data>
-  <data name="FrmOptions_I_tried_to_solve_the_problems__you_happy_now_" xml:space="preserve">
+  <data name="FrmOptions_I_tried_to_solve_the_problems__you_happy_now" xml:space="preserve">
     <value>I tried to solve the problems, you happy now?</value>
   </data>
-  <data name="FrmTools_Shortcut_created_successfully_" xml:space="preserve">
+  <data name="FrmTools_Shortcut_created_successfully" xml:space="preserve">
     <value>Shortcut created successfully.</value>
   </data>
   <data name="FrmTools_Shortcut" xml:space="preserve">
     <value>Shortcut</value>
   </data>
-  <data name="FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred_" xml:space="preserve">
+  <data name="FrmTools_Failed_to_create_the_shortcut__Unexpected_exception_occurred" xml:space="preserve">
     <value>Failed to create the shortcut. Unexpected exception occurred.</value>
   </data>
   <data name="FrmTools_Toggles_the_display_mode_between_surround_and_extended" xml:space="preserve">
@@ -153,19 +153,19 @@
   <data name="FrmTools_Changes_the_display_mode_to_extended" xml:space="preserve">
     <value>Changes the display mode to extended</value>
   </data>
-  <data name="FrmTools_Bad_file_selected__Please_select_an_executable_file_" xml:space="preserve">
+  <data name="FrmTools_Bad_file_selected__Please_select_an_executable_file" xml:space="preserve">
     <value>Bad file selected. Please select an executable file.</value>
   </data>
   <data name="FrmTools_App_Select" xml:space="preserve">
     <value>App Select</value>
   </data>
-  <data name="FrmSplash_Failed__Closing____" xml:space="preserve">
+  <data name="FrmSplash_Failed__Closing" xml:space="preserve">
     <value>Failed, Closing ...</value>
   </data>
-  <data name="FrmSplash_Please_wait____" xml:space="preserve">
+  <data name="FrmSplash_Please_wait" xml:space="preserve">
     <value>Please wait ...</value>
   </data>
-  <data name="FrmSplash_Starting_in__0__seconds____" xml:space="preserve">
+  <data name="FrmSplash_Starting_in_seconds" xml:space="preserve">
     <value>Starting in {0} seconds ...</value>
   </data>
   <data name="CommandLineOptions_Help" xml:space="preserve">
@@ -180,13 +180,13 @@
   <data name="FrmSplash__Options" xml:space="preserve">
     <value>&amp;Options</value>
   </data>
-  <data name="FrmSplash_There_is_no_active_splash_screen_" xml:space="preserve">
+  <data name="FrmSplash_There_is_no_active_splash_screen" xml:space="preserve">
     <value>There is no active splash screen.</value>
   </data>
   <data name="FrmOptions_Options" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="FrmOptions_By_Soroush_Falahati_v_0_" xml:space="preserve">
+  <data name="FrmOptions_By_Soroush_Falahati_v" xml:space="preserve">
     <value>By Soroush Falahati v{0}</value>
   </data>
   <data name="FrmTools_Create_Shortcut__Commands" xml:space="preserve">
@@ -228,19 +228,19 @@
   <data name="FrmTools_Tools" xml:space="preserve">
     <value>Tools</value>
   </data>
-  <data name="FrmTools_Open__0__in_surround_mode_" xml:space="preserve">
+  <data name="FrmTools_Open_in_surround_mode" xml:space="preserve">
     <value>Open {0} in surround mode.</value>
   </data>
-  <data name="FrmTools_Open__0__in_extended_mode_" xml:space="preserve">
+  <data name="FrmTools_Open_in_extended_mode" xml:space="preserve">
     <value>Open {0} in extended mode.</value>
   </data>
-  <data name="FrmTools_Opens_the_program_s_configuration_screen_" xml:space="preserve">
+  <data name="FrmTools_Opens_the_program_s_configuration_screen" xml:space="preserve">
     <value>Opens the program's configuration screen.</value>
   </data>
-  <data name="FrmTools_Opens_the_program_s_tools_screen_" xml:space="preserve">
+  <data name="FrmTools_Opens_the_program_s_tools_screen" xml:space="preserve">
     <value>Opens the program's tools screen.</value>
   </data>
-  <data name="Program_Can_not_open_a_named_pipe_for_IPC_" xml:space="preserve">
+  <data name="Program_Can_not_open_a_named_pipe_for_IPC" xml:space="preserve">
     <value>Can not open a named pipe for IPC.</value>
   </data>
   <data name="Program_Another_instance_of_this_program_is_in_working_state__please_try_again_later_" xml:space="preserve">
@@ -249,32 +249,32 @@
   <data name="Program_Bad_Action_Specified" xml:space="preserve">
     <value>Bad Action Specified</value>
   </data>
-  <data name="Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again_" xml:space="preserve">
+  <data name="Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again" xml:space="preserve">
     <value>You can't start a process in extended mode when you have another process in surround mode. Close the other program and try again.</value>
   </data>
-  <data name="Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again_" xml:space="preserve">
+  <data name="Program_You_can_t_start_a_process_in_surround_mode_when_you_have_another_process_in_extended_mode__Close_the_other_program_and_try_again" xml:space="preserve">
     <value>You can't start a process in surround mode when you have another process in extended mode. Close the other program and try again.</value>
   </data>
   <data name="Program_Bad_Filename_Specified" xml:space="preserve">
     <value>Bad Filename Specified</value>
   </data>
-  <data name="Program_Fatal Error__" xml:space="preserve">
+  <data name="Program_Fatal_Error_Message" xml:space="preserve">
     <value>Fatal Error: 
 {0}</value>
   </data>
   <data name="Program_Fatal_Error" xml:space="preserve">
     <value>Fatal Error</value>
   </data>
-  <data name="Surround_Arrangement_panel_is_not_accessible_from_our_side__can_t_save_your_settings_" xml:space="preserve">
+  <data name="Surround_Arrangement_panel_is_not_accessible_from_our_side_can_t_save_your_settings_" xml:space="preserve">
     <value>Arrangement panel is not accessible from our side, can't save your settings.</value>
   </data>
-  <data name="Surround_Can_t_find_the_surround_settings_" xml:space="preserve">
+  <data name="Surround_Can_t_find_the_surround_settings" xml:space="preserve">
     <value>Can't find the surround settings.</value>
   </data>
-  <data name="Surround_Failed_to_change_the_surround_settings_" xml:space="preserve">
+  <data name="Surround_Failed_to_change_the_surround_settings" xml:space="preserve">
     <value>Failed to change the surround settings.</value>
   </data>
-  <data name="Surround_NVIDIA_Control_Panel_is_absent_on_this_system_" xml:space="preserve">
+  <data name="Surround_NVIDIA_Control_Panel_is_absent_on_this_system" xml:space="preserve">
     <value>NVIDIA Control Panel is absent on this system.</value>
   </data>
 </root>
