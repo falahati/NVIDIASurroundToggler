@@ -11,7 +11,7 @@ SetCompressor /SOLID lzma
 ;--------------------------------
 ;General
   ;Name and file
-  !define VERSION "1.0.0"
+  !define VERSION "1.1.0"
   Name "NVidia Surround Toggler v${VERSION}"
   OutFile "NVIDIA Surround Toggle Setup.exe"
 
