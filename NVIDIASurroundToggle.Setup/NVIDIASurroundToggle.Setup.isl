@@ -342,6 +342,7 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{72A1BA1E-8A19-43AA-A022-D21B49A7DE61}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{9522BC83-9085-4301-B574-4061CE59E6D6}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NVIDIASurroundToggle.Localized_resources</td><td>{B4B82FE8-1D56-43DC-A5FB-58D441569F27}</td><td>INSTALLDIR</td><td>2</td><td/><td>nvidiasurroundtoggle.localiz</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NVIDIASurroundToggle.Primary_output</td><td>{159FDA5A-1CB8-4848-B116-07CF88296787}</td><td>INSTALLDIR</td><td>2</td><td/><td>nvidiasurroundtoggle.primary</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
@@ -1054,6 +1055,7 @@
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>INSTALLDIR</td><td>NVIDIASurroundToggle.Localized_resources</td></row>
 		<row><td>INSTALLDIR</td><td>NVIDIASurroundToggle.Primary_output</td></row>
 	</table>
@@ -1871,6 +1873,7 @@
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>NVIDIASurroundToggle.Localized_resources</td></row>
 		<row><td>AlwaysInstall</td><td>NVIDIASurroundToggle.Primary_output</td></row>
 	</table>
@@ -2031,6 +2034,7 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_8A69290C_54F8_4ACE_AF34_8CB3559B4DC4_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_387E134B_95B4_4358_8CB2_CE8C922A0598_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NVIDIASurroundToggle.Localized_resources</td><td/><td/><td>_63F9D0BB_391B_41AC_9913_56444A7309F4_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>NVIDIASurroundToggle.Primary_output</td><td/><td/><td>_A0C5550B_15F3_4437_9E58_13E92A1519CF_FILTER</td><td/><td/><td/><td/></row>
 	</table>
@@ -4357,7 +4361,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]NVIDIASurroundToggle.Primary output</td><td/></row>
-		<row><td>ProductCode</td><td>{8AC8FF33-9C64-4398-AC6C-12990866AC01}</td><td/></row>
+		<row><td>ProductCode</td><td>{8AC8FF33-9C64-4398-AC6C-12990866AC02}</td><td/></row>
 		<row><td>ProductName</td><td>NVIDIA Surround Toggle</td><td/></row>
 		<row><td>ProductVersion</td><td>1.1.1.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
@@ -4428,6 +4432,36 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>Registry1</td><td>0</td><td>DesktopBackground\Shell\NVIDIASurroundToggle</td><td>icon</td><td>[INSTALLDIR]NVIDIA Surround Toggle.exe</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry12</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundoptions</td><td>CommandFlags</td><td>#32</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry13</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtoggle</td><td>icon</td><td>[INSTALLDIR]NVIDIA Surround Toggle.exe</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry15</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtoggle</td><td/><td>Toggle Surround Mode</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry16</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_extended</td><td/><td>Start in Extended Mode</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry17</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_surround</td><td/><td>Start in Surround Mode</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry18</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_extended\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a GoExtended -e %l</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry2</td><td>0</td><td>DesktopBackground\Shell\NVIDIASurroundToggle</td><td>MUIVerb</td><td>NVIDIA Surround</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry20</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundoptions</td><td/><td>Options</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry21</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundoptions\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a OpenOptions</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry22</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtools</td><td/><td>Tools</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry23</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtools\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a OpenTools</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry24</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_surround\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a GoSurround -e %l</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry25</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtoggle</td><td>icon</td><td>[INSTALLDIR]NVIDIA Surround Toggle.exe</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry26</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtoggle</td><td/><td>Toggle Surround Mode</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry27</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtoggle\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a ToggleMode</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry28</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundoptions</td><td/><td>Options</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry29</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundoptions</td><td>CommandFlags</td><td>#32</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry3</td><td>0</td><td>DesktopBackground\Shell\NVIDIASurroundToggle</td><td>SubCommands</td><td>nvidiasurroundtoggle;nvidiasurroundoptions;nvidiasurroundtools;</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry30</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundoptions\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a OpenOptions</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry31</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtools</td><td/><td>Tools</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry32</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtools\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a OpenTools</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry33</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_extended</td><td/><td>Start in Extended Mode</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry34</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_extended\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a GoExtended -e %l</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry35</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_surround</td><td/><td>Start in Surround Mode</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry36</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurround_surround\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a GoSurround -e %l</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry37</td><td>0</td><td>exefile\shell\NVIDIASurroundToggle</td><td>icon</td><td>[INSTALLDIR]NVIDIA Surround Toggle.exe</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry38</td><td>0</td><td>exefile\shell\NVIDIASurroundToggle</td><td>MUIVerb</td><td>NVIDIA Surround</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry39</td><td>0</td><td>exefile\shell\NVIDIASurroundToggle</td><td>SubCommands</td><td>nvidiasurround_extended;nvidiasurround_surround;</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
+		<row><td>Registry5</td><td>2</td><td>SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\nvidiasurroundtoggle\command</td><td/><td>"[INSTALLDIR]NVIDIA Surround Toggle.exe" -a ToggleMode</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
 	</table>
 
 	<table name="RemoveFile">
