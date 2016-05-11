@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
+using System.Threading;
 using System.Windows.Forms;
 using NVIDIASurroundToggle.Properties;
 using NVIDIASurroundToggle.Resources;
@@ -17,11 +20,34 @@ namespace NVIDIASurroundToggle
             lbl_version.Text = string.Format(
                 Language.FrmOptions_By_Soroush_Falahati_v,
                 Assembly.GetEntryAssembly().GetName().Version.ToString(2));
-            cb_lang.Items.Add(new ComboBoxItem("Windows Default") { Tag = string.Empty });
-            cb_lang.Items.Add(new ComboBoxItem("English") {Tag = "en-US"});
-            cb_lang.Items.Add(new ComboBoxItem("Deutsch") {Tag = "de-DE"});
-            cb_lang.Items.Add(new ComboBoxItem("Dutch") {Tag = "nl-NL"});
+            cb_lang.Items.Add(
+                new ComboBoxItem("Windows Default - " + Thread.CurrentThread.CurrentCulture.DisplayName)
+                {
+                    Tag = string.Empty
+                });
             cb_lang.SelectedIndex = 0;
+            ResourceManager resourceManager = new ResourceManager(typeof(NVidiaLocalization));
+            foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            {
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(culture.Name))
+                    {
+                        ResourceSet rs = resourceManager.GetResourceSet(culture, true, false);
+                        if (rs != null)
+                        {
+                            cb_lang.Items.Add(new ComboBoxItem(culture.DisplayName) {Tag = culture.Name});
+                            rs.Close();
+                            rs.Dispose();
+                        }
+                    }
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+
             if (!string.IsNullOrWhiteSpace(Settings.Default.ControlPanelLanguage))
             {
                 var selectedLanguage = cb_lang.SelectedItem =

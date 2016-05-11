@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NVIDIA_ControlPanel_Caption_NVIDIA_Control_Panel" xml:space="preserve">
-    <value>NVIDIA Systemsteuerung</value>
+    <value>Panneau de configuration NVIDIA</value>
   </data>
   <data name="NVIDIA_Surround_Caption_NVIDIA_Set_Up_Surround" xml:space="preserve">
-    <value>NVIDIA Surround einrichten</value>
+    <value>Configuration du Surround NVIDIA</value>
   </data>
   <data name="NVIDIA_Surround_DisableButton_Disable" xml:space="preserve">
-    <value>deaktivieren</value>
+    <value>Désactiver</value>
   </data>
 </root>
