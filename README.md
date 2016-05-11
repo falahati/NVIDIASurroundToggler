@@ -19,7 +19,7 @@ It is also possible to create advanced shortcuts using the program's 'Tools' pag
 ![Screenshot](/screenshot.jpg?raw=true "Screenshot")
 
 ## KNOWN ISSUES
-List of the supported languages for 'NVIDIA Control Panel' is still a short list. So if you found this program not working with your Windows/'NVIDIA Control Panel' language, open an <a href="https://github.com/falahati/NVIDIASurroundToggler/issues">Issue</a> and help us add your language to the next release.
+This program supports most (if not all) of the 'NVIDIA Control Panel' languages. Still, if you have a problem with one specific language, open an <a href="https://github.com/falahati/NVIDIASurroundToggler/issues">Issue</a> and help us fix it in the next release.
 
 Unfortunately this program is not compatible with SLI setups YET! We try our best to add this functionality to the program as soon as possible.
 
