@@ -148,25 +148,25 @@ namespace NVIDIASurroundToggle
 
                     if (bezel1TextBox != null && Settings.Default.Bezel1 > -1)
                     {
-                        Methods.SendMessage(bezel1TextBox.GetHWnd(), 0x000C, 0, Settings.Default.Bezel1.ToString());
+                        bezel1TextBox.BulkText = Settings.Default.Bezel1.ToString();
                         setupDialog.WaitWhileBusy();
                     }
 
                     if (bezel2TextBox != null && Settings.Default.Bezel2 > -1)
                     {
-                        Methods.SendMessage(bezel2TextBox.GetHWnd(), 0x000C, 0, Settings.Default.Bezel2.ToString());
+                        bezel2TextBox.BulkText = Settings.Default.Bezel2.ToString();
                         setupDialog.WaitWhileBusy();
                     }
 
                     if (bezel3TextBox != null && Settings.Default.Bezel3 > -1)
                     {
-                        Methods.SendMessage(bezel3TextBox.GetHWnd(), 0x000C, 0, Settings.Default.Bezel3.ToString());
+                        bezel3TextBox.BulkText = Settings.Default.Bezel3.ToString();
                         setupDialog.WaitWhileBusy();
                     }
 
                     if (bezel4TextBox != null && Settings.Default.Bezel4 > -1)
                     {
-                        Methods.SendMessage(bezel4TextBox.GetHWnd(), 0x000C, 0, Settings.Default.Bezel4.ToString());
+                        bezel4TextBox.BulkText = Settings.Default.Bezel4.ToString();
                         setupDialog.WaitWhileBusy();
                     }
 
