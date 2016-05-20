@@ -95,9 +95,9 @@
             // 
             this.cb_lang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_lang.FormattingEnabled = true;
-            this.cb_lang.Location = new System.Drawing.Point(157, 299);
+            this.cb_lang.Location = new System.Drawing.Point(178, 299);
             this.cb_lang.Name = "cb_lang";
-            this.cb_lang.Size = new System.Drawing.Size(255, 21);
+            this.cb_lang.Size = new System.Drawing.Size(234, 21);
             this.cb_lang.TabIndex = 4;
             // 
             // label1
@@ -105,9 +105,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 302);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(160, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "NVidia Language";
+            this.label1.Text = "NVIDIA Control Panel Language";
             // 
             // FrmOptions
             // 
