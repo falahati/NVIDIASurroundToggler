@@ -57,13 +57,13 @@ namespace NVIDIASurroundToggle
                 {
                     switch (CommandLineOptions.Default.Action)
                     {
-                        case CommandLineOptions.Actions.OpenOptions:
-                            new FrmOptions().ShowDialog();
+                        case StartupActions.OpenOptions:
+                            new OptionsForm().ShowDialog();
                             break;
-                        case CommandLineOptions.Actions.OpenTools:
-                            new FrmTools().ShowDialog();
+                        case StartupActions.OpenTools:
+                            new ToolsForm().ShowDialog();
                             break;
-                        case CommandLineOptions.Actions.GoExtended:
+                        case StartupActions.GoExtended:
                             if (Helper.IsAnyProgramActive())
                             {
                                 throw new Exception(
@@ -72,7 +72,7 @@ namespace NVIDIASurroundToggle
                             }
                             Surround.DisableSurround(false);
                             return;
-                        case CommandLineOptions.Actions.GoSurround:
+                        case StartupActions.GoSurround:
                             if (Helper.IsAnyProgramActive())
                             {
                                 throw new Exception(
@@ -81,7 +81,7 @@ namespace NVIDIASurroundToggle
                             }
                             Surround.EnableSurround(false);
                             return;
-                        case CommandLineOptions.Actions.ToggleMode:
+                        case StartupActions.ToggleMode:
                             if (Helper.IsAnyProgramActive())
                             {
                                 throw new Exception(
@@ -90,7 +90,7 @@ namespace NVIDIASurroundToggle
                             }
                             Surround.ToggleSurround(false);
                             return;
-                        case CommandLineOptions.Actions.None:
+                        case StartupActions.None:
                             if (Helper.IsAnyProgramActive())
                             {
                                 throw new Exception(
@@ -114,7 +114,7 @@ namespace NVIDIASurroundToggle
                     var didWeChangedTheMode = false;
                     switch (CommandLineOptions.Default.Action)
                     {
-                        case CommandLineOptions.Actions.GoExtended:
+                        case StartupActions.GoExtended:
                             if (!Helper.QueryStatus(InstanceStatus.WaitingForExtendedProcess))
                             {
                                 if (Helper.QueryStatus(InstanceStatus.WaitingForSurroundProcess))
@@ -127,7 +127,7 @@ namespace NVIDIASurroundToggle
                             }
                             Service.GetInstance().Status = InstanceStatus.WaitingForExtendedProcess;
                             break;
-                        case CommandLineOptions.Actions.GoSurround:
+                        case StartupActions.GoSurround:
                             if (!Helper.QueryStatus(InstanceStatus.WaitingForSurroundProcess))
                             {
                                 if (Helper.QueryStatus(InstanceStatus.WaitingForExtendedProcess))
@@ -170,7 +170,7 @@ namespace NVIDIASurroundToggle
                     {
                         switch (CommandLineOptions.Default.Action)
                         {
-                            case CommandLineOptions.Actions.GoExtended:
+                            case StartupActions.GoExtended:
                                 while (Helper.QueryStatus(InstanceStatus.WaitingForExtendedProcess))
                                 {
                                     Thread.Sleep(500);
@@ -178,7 +178,7 @@ namespace NVIDIASurroundToggle
                                 Service.GetInstance().Status = InstanceStatus.Busy;
                                 Surround.EnableSurround(false);
                                 break;
-                            case CommandLineOptions.Actions.GoSurround:
+                            case StartupActions.GoSurround:
                                 while (Helper.QueryStatus(InstanceStatus.WaitingForSurroundProcess))
                                 {
                                     Thread.Sleep(500);

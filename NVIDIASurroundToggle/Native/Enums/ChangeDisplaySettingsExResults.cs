@@ -1,6 +1,6 @@
 ﻿namespace NVIDIASurroundToggle.Native.Enums
 {
-    public enum ChangeDisplaySettingsExResults
+    internal enum ChangeDisplaySettingsExResults
     {
         Successful = 0,
 

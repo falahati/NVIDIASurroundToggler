@@ -5,7 +5,7 @@ using TestStack.White.UIItems.WindowItems;
 
 namespace NVIDIASurroundToggle.Extensions
 {
-    public static class WindowExtensions
+    internal static class WindowExtensions
     {
         public static void HideMinimize(this Window window)
         {
@@ -26,7 +26,7 @@ namespace NVIDIASurroundToggle.Extensions
                 handle,
                 -0x14,
                 (uint) ((style | WindowStyles.ToolWindow) & ~(WindowStyles.ThickFrame) & ~(WindowStyles.WindowEdge)));
-            Methods.SetWindowPos(
+            Methods.SetWindowPosition(
                 handle,
                 new IntPtr(1),
                 posX,
@@ -34,8 +34,8 @@ namespace NVIDIASurroundToggle.Extensions
                 sizeX,
                 sizeY,
                 isResizableAndNotModal
-                    ? SetWindowPosFlags.HideWindow
-                    : SetWindowPosFlags.HideWindow | SetWindowPosFlags.IgnoreResize);
+                    ? SetWindowPositionFlags.HideWindow
+                    : SetWindowPositionFlags.HideWindow | SetWindowPositionFlags.IgnoreResize);
         }
 
         public static void ShowFocus(this Window window)
@@ -46,14 +46,14 @@ namespace NVIDIASurroundToggle.Extensions
             var sizeY = Methods.GetSystemMetrics(SystemMetric.HeightVirtualScreen);
             var handle = window.GetHWnd();
             Methods.ShowWindow(handle, ShowWindow.ShowNormal);
-            Methods.SetWindowPos(
+            Methods.SetWindowPosition(
                 handle,
                 new IntPtr(-1),
                 posX,
                 posY,
                 sizeX,
                 sizeY,
-                SetWindowPosFlags.ShowWindow | SetWindowPosFlags.IgnoreResize);
+                SetWindowPositionFlags.ShowWindow | SetWindowPositionFlags.IgnoreResize);
             window.Focus();
             Methods.SetWindowLong(handle, -20, Methods.GetWindowLong(handle, -20) ^ 0x80000);
             Methods.SetLayeredWindowAttributes(handle, 0, 1, 0x2);
@@ -70,14 +70,15 @@ namespace NVIDIASurroundToggle.Extensions
             Methods.ShowWindow(handle, ShowWindow.ShowNormal);
             Methods.SetWindowLong(handle, -20, Methods.GetWindowLong(handle, -20) ^ 0x80000);
             Methods.SetLayeredWindowAttributes(handle, 0, 255, 0x2);
-            Methods.SetWindowPos(
+            Methods.SetWindowPosition(
                 handle,
                 new IntPtr(-1),
                 posX,
                 posY,
                 0,
                 0,
-                SetWindowPosFlags.IgnoreResize | SetWindowPosFlags.ShowWindow | SetWindowPosFlags.FrameChanged);
+                SetWindowPositionFlags.IgnoreResize | SetWindowPositionFlags.ShowWindow |
+                SetWindowPositionFlags.FrameChanged);
             window.Focus();
             Methods.RedrawWindow(
                 handle,

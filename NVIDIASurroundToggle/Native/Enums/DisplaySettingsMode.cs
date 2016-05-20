@@ -1,6 +1,6 @@
 ﻿namespace NVIDIASurroundToggle.Native.Enums
 {
-    public enum DisplaySettingsMode
+    internal enum DisplaySettingsMode
     {
         CurrentSettings = -1,
 

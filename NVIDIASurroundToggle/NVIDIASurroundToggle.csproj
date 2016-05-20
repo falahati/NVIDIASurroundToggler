@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -102,23 +102,23 @@
     <Compile Include="Extensions\MouseExtensions.cs" />
     <Compile Include="Extensions\UIItemExtensions.cs" />
     <Compile Include="Extensions\WindowExtensions.cs" />
-    <Compile Include="FrmOptions.cs">
+    <Compile Include="OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOptions.Designer.cs">
-      <DependentUpon>FrmOptions.cs</DependentUpon>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSplash.cs">
+    <Compile Include="SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSplash.Designer.cs">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTools.cs">
+    <Compile Include="ToolsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTools.Designer.cs">
-      <DependentUpon>FrmTools.cs</DependentUpon>
+    <Compile Include="ToolsForm.Designer.cs">
+      <DependentUpon>ToolsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InterProcess\Client.cs" />
     <Compile Include="InterProcess\Helper.cs" />
@@ -133,8 +133,8 @@
     <Compile Include="Native\Methods.cs" />
     <Compile Include="Native\Stractures\MonitorInfoEx.cs" />
     <Compile Include="Native\Stractures\Point.cs" />
-    <Compile Include="Native\Stractures\Rect.cs" />
-    <Compile Include="Native\Enums\SetWindowPosFlags.cs" />
+    <Compile Include="Native\Stractures\Rectangle.cs" />
+    <Compile Include="Native\Enums\SetWindowPositionFlags.cs" />
     <Compile Include="Native\Enums\ShowWindow.cs" />
     <Compile Include="Native\Enums\SystemMetric.cs" />
     <Compile Include="Native\Enums\WindowStyles.cs" />
@@ -150,17 +150,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NVidiaLocalization.resx</DependentUpon>
     </Compile>
+    <Compile Include="StartupActions.cs" />
     <Compile Include="Surround.cs" />
     <Compile Include="Utility.cs" />
-    <EmbeddedResource Include="FrmOptions.resx">
-      <DependentUpon>FrmOptions.cs</DependentUpon>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSplash.resx">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTools.resx">
-      <DependentUpon>FrmTools.cs</DependentUpon>
+    <EmbeddedResource Include="ToolsForm.resx">
+      <DependentUpon>ToolsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

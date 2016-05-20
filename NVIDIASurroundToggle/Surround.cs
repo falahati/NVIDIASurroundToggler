@@ -19,18 +19,17 @@ using TestStack.White.InputDevices;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.ListBoxItems;
-using Rect = NVIDIASurroundToggle.Native.Stractures.Rect;
 
 namespace NVIDIASurroundToggle
 {
-    public static class Surround
+    internal static class Surround
     {
         public static bool EnableSurround(bool showControls = true)
         {
             var result = false;
             if (!IsBusy())
             {
-                new FrmSplash(() => result = ChangeNVidiaDisplayMode(true), showControls).ShowDialog();
+                new SplashForm(() => result = ChangeNvidiaDisplayMode(true), showControls).ShowDialog();
             }
             return result;
         }
@@ -40,7 +39,7 @@ namespace NVIDIASurroundToggle
             var result = false;
             if (!IsBusy())
             {
-                new FrmSplash(() => result = ChangeNVidiaDisplayMode(false), showControls).ShowDialog();
+                new SplashForm(() => result = ChangeNvidiaDisplayMode(false), showControls).ShowDialog();
             }
             return result;
         }
@@ -50,20 +49,22 @@ namespace NVIDIASurroundToggle
             var result = false;
             if (!IsBusy())
             {
-                new FrmSplash(() => result = ChangeNVidiaDisplayMode(null), showControls).ShowDialog();
+                new SplashForm(() => result = ChangeNvidiaDisplayMode(null), showControls).ShowDialog();
             }
             return result;
         }
 
         public static bool IsBusy()
         {
-            return Utility.DefaultOnException(() => FrmSplash.Instance.Visible);
+            return Utility.DefaultOnException(() => SplashForm.Instance.Visible);
         }
 
         private static bool AutomateSurroundSettings(Application application)
         {
             // Waiting for form to become visible
-            var setupDialog = Utility.DefaultOnException(() => application.GetWindow(NVidiaLocalization.NVIDIA_Surround_Caption_NVIDIA_Set_Up_Surround));
+            var setupDialog =
+                Utility.DefaultOnException(
+                    () => application.GetWindow(NVidiaLocalization.NVIDIA_Surround_Caption_NVIDIA_Set_Up_Surround));
             if (setupDialog == null)
             {
                 return true; // Control Panel somehow knows the settings
@@ -74,7 +75,7 @@ namespace NVIDIASurroundToggle
                 setupDialog.HideMinimize();
                 setupDialog.WaitWhileBusy();
                 setupDialog.ShowFocus();
-                FrmSplash.Instance.Focus();
+                SplashForm.Instance.Focus();
                 System.Windows.Forms.Application.DoEvents();
 
                 var topologyDropdown =
@@ -90,7 +91,7 @@ namespace NVIDIASurroundToggle
                 // Waiting a little for element to load, if not yet
                 var enableButton = setupDialog.GetChildWindowWithControlId<Button>(3493, 5000);
 
-                FrmSplash.Instance.Focus();
+                SplashForm.Instance.Focus();
                 System.Windows.Forms.Application.DoEvents();
 
                 var bezel1TextBox = setupDialog.GetChildWindowWithControlId<TextBox>(3506);
@@ -119,7 +120,7 @@ namespace NVIDIASurroundToggle
                             topologyDropdownItems[Settings.Default.Topology].Select();
                             setupDialog.WaitWhileBusy();
                             Mouse.Instance.RestoreLocation();
-                            FrmSplash.Instance.Focus();
+                            SplashForm.Instance.Focus();
                             System.Windows.Forms.Application.DoEvents();
                         }
                     }
@@ -137,7 +138,7 @@ namespace NVIDIASurroundToggle
                                         Mouse.Instance.Location = cb.Bounds.Location + new Vector(22, 7);
                                         setupDialog.ExecuteAutomationAction(() => Mouse.Instance.Click());
                                         Mouse.Instance.RestoreLocation();
-                                        FrmSplash.Instance.Focus();
+                                        SplashForm.Instance.Focus();
                                         System.Windows.Forms.Application.DoEvents();
                                         return cb.Checked;
                                     });
@@ -178,7 +179,7 @@ namespace NVIDIASurroundToggle
                             resolutionDropdownItems[Settings.Default.Resolution].Select();
                             setupDialog.WaitWhileBusy();
                             Mouse.Instance.RestoreLocation();
-                            FrmSplash.Instance.Focus();
+                            SplashForm.Instance.Focus();
                             System.Windows.Forms.Application.DoEvents();
                         }
                     }
@@ -191,7 +192,7 @@ namespace NVIDIASurroundToggle
                             refreshRateDropdownItems[Settings.Default.RefreshRate].Select();
                             setupDialog.WaitWhileBusy();
                             Mouse.Instance.RestoreLocation();
-                            FrmSplash.Instance.Focus();
+                            SplashForm.Instance.Focus();
                             System.Windows.Forms.Application.DoEvents();
                         }
                     }
@@ -213,7 +214,9 @@ namespace NVIDIASurroundToggle
                                 System.Windows.Forms.Application.DoEvents();
                                 application.WaitWhileBusy();
                                 return !enableButton.Enabled
-                                       || enableButton.Text.ToLower().Contains(NVidiaLocalization.NVIDIA_Surround_DisableButton_Disable.ToLower());
+                                       ||
+                                       enableButton.Text.ToLower()
+                                           .Contains(NVidiaLocalization.NVIDIA_Surround_DisableButton_Disable.ToLower());
                             });
                         Utility.ContinueException(() => setupDialog.Close());
                         if (result)
@@ -298,7 +301,9 @@ namespace NVIDIASurroundToggle
                             });
 
                         setupDialog.WaitWhileBusy();
-                        if (enableButton.Text.ToLower().Contains(NVidiaLocalization.NVIDIA_Surround_DisableButton_Disable.ToLower()))
+                        if (
+                            enableButton.Text.ToLower()
+                                .Contains(NVidiaLocalization.NVIDIA_Surround_DisableButton_Disable.ToLower()))
                         {
                             Settings.Default.Save();
                             setupDialog.Close();
@@ -365,7 +370,7 @@ namespace NVIDIASurroundToggle
             }
             else
             {
-                Process.Start("control.exe", "desk.cpl,Settings,@Settings");
+                Process.Start(@"control.exe", @"desk.cpl,Settings,@Settings");
                 Thread.Sleep(10000);
             }
         }
@@ -472,7 +477,7 @@ namespace NVIDIASurroundToggle
 
         public static void Cleanup()
         {
-            Process.GetProcesses().Where(pr => pr.ProcessName == "nvcplui").ForEach(
+            Process.GetProcesses().Where(pr => pr.ProcessName == @"nvcplui").ForEach(
                 pr =>
                 {
                     pr.Kill();
@@ -517,7 +522,7 @@ namespace NVIDIASurroundToggle
                 });
         }
 
-        private static bool ChangeNVidiaDisplayMode(bool? on)
+        private static bool ChangeNvidiaDisplayMode(bool? on)
         {
             Cleanup();
             try
@@ -553,11 +558,11 @@ namespace NVIDIASurroundToggle
                         ex => ex.DeviceName.ToLower().Trim() == setting.DisplayName.ToLower().Trim()));
                 var flags = ChangeDisplaySettingsFlags.Updateregistry | ChangeDisplaySettingsFlags.Global
                             | ChangeDisplaySettingsFlags.Noreset;
-                if (setting.Devmode.Position.X == 0 && setting.Devmode.Position.Y == 0)
+                if (setting.DevMode.Position.X == 0 && setting.DevMode.Position.Y == 0)
                 {
                     flags |= ChangeDisplaySettingsFlags.SetPrimary;
                 }
-                var devMode = setting.Devmode;
+                var devMode = setting.DevMode;
                 if (Methods.ChangeDisplaySettingsEx(setting.DisplayName, ref devMode, IntPtr.Zero, flags, IntPtr.Zero)
                     != ChangeDisplaySettingsExResults.Successful)
                 {
@@ -596,9 +601,9 @@ namespace NVIDIASurroundToggle
             Methods.EnumDisplayMonitors(
                 IntPtr.Zero,
                 IntPtr.Zero,
-                (IntPtr hMonitor, IntPtr hdcMonitor, ref Rect lprcMonitor, IntPtr dwData) =>
+                (IntPtr hMonitor, IntPtr hdcMonitor, ref Rectangle lprcMonitor, IntPtr dwData) =>
                 {
-                    var mi = new MonitorInfoEx().Init();
+                    var mi = new MonitorInfoEx().Initialize();
                     var success = Methods.GetMonitorInfo(hMonitor, ref mi);
                     if (success)
                     {
@@ -615,10 +620,10 @@ namespace NVIDIASurroundToggle
             var settings = new List<DisplaySetting>();
             foreach (var display in GetDisplays())
             {
-                var devMode = new DevMode().Init();
+                var devMode = new DevMode().Initialize();
                 if (Methods.EnumDisplaySettings(display.DeviceName, DisplaySettingsMode.CurrentSettings, ref devMode))
                 {
-                    settings.Add(new DisplaySetting {DisplayName = display.DeviceName, Devmode = devMode});
+                    settings.Add(new DisplaySetting {DisplayName = display.DeviceName, DevMode = devMode});
                 }
             }
             return settings.ToArray();

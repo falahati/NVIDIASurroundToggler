@@ -3,7 +3,7 @@
 namespace NVIDIASurroundToggle.Native.Enums
 {
     [Flags]
-    public enum SetWindowPosFlags : uint
+    internal enum SetWindowPositionFlags : uint
     {
         AsynchronousWindowPosition = 0x4000,
 

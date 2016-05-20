@@ -3,19 +3,19 @@
 namespace NVIDIASurroundToggle.Native.Stractures
 {
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    public struct MonitorInfoEx
+    internal struct MonitorInfoEx
     {
         public int Size;
 
-        public Rect Monitor;
+        public Rectangle Monitor;
 
-        public Rect WorkArea;
+        public Rectangle WorkArea;
 
         public uint Flags;
 
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string DeviceName;
 
-        public MonitorInfoEx Init()
+        public MonitorInfoEx Initialize()
         {
             DeviceName = string.Empty;
             Size = Marshal.SizeOf(this);

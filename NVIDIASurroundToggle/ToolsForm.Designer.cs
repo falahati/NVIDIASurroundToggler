@@ -2,7 +2,7 @@
 {
     using NVIDIASurroundToggle.Resources;
 
-    partial class FrmTools
+    partial class ToolsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTools));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToolsForm));
             this.gb_com = new System.Windows.Forms.GroupBox();
             this.btn_com_select = new System.Windows.Forms.Button();
             this.rb_com_toggle = new System.Windows.Forms.RadioButton();
@@ -81,8 +81,8 @@
             this.btn_com_select.TabIndex = 5;
             this.btn_com_select.Text = Language.FrmTools_Place_Shortcut;
             this.btn_com_select.UseVisualStyleBackColor = true;
-            this.btn_com_select.Click += new System.EventHandler(this.BtnComSelectClick);
-            this.btn_com_select.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.btn_com_select.Click += new System.EventHandler(this.CommandShortcutClick);
+            this.btn_com_select.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // rb_com_toggle
             // 
@@ -95,7 +95,7 @@
             this.rb_com_toggle.TabStop = true;
             this.rb_com_toggle.Text = Language.FrmTools_Toggle;
             this.rb_com_toggle.UseVisualStyleBackColor = true;
-            this.rb_com_toggle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.rb_com_toggle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // rb_com_extended
             // 
@@ -106,7 +106,7 @@
             this.rb_com_extended.TabIndex = 1;
             this.rb_com_extended.Text = Language.FrmTools_Extended_Mode;
             this.rb_com_extended.UseVisualStyleBackColor = true;
-            this.rb_com_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.rb_com_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // rb_com_surround
             // 
@@ -117,7 +117,7 @@
             this.rb_com_surround.TabIndex = 0;
             this.rb_com_surround.Text = Language.FrmTools_Surround_Mode;
             this.rb_com_surround.UseVisualStyleBackColor = true;
-            this.rb_com_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.rb_com_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // gb_app
             // 
@@ -157,7 +157,7 @@
             this.btn_app_executable.TabIndex = 4;
             this.btn_app_executable.Text = "...";
             this.btn_app_executable.UseVisualStyleBackColor = true;
-            this.btn_app_executable.Click += new System.EventHandler(this.BtnAppExecutableClick);
+            this.btn_app_executable.Click += new System.EventHandler(this.ApplicationExecutableClick);
             // 
             // txt_app_executable
             // 
@@ -193,7 +193,7 @@
             this.cb_app_args.TabIndex = 5;
             this.cb_app_args.Text = Language.FrmTools_With_Arguments;
             this.cb_app_args.UseVisualStyleBackColor = true;
-            this.cb_app_args.CheckedChanged += new System.EventHandler(this.CbAppArgsCheckedChanged);
+            this.cb_app_args.CheckedChanged += new System.EventHandler(this.ApplicationArgumentsCheckedChanged);
             // 
             // nud_app_timeout
             // 
@@ -217,7 +217,7 @@
             0,
             0,
             0});
-            this.nud_app_timeout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.nud_app_timeout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // txt_app_process
             // 
@@ -226,7 +226,7 @@
             this.txt_app_process.ReadOnly = true;
             this.txt_app_process.Size = new System.Drawing.Size(100, 20);
             this.txt_app_process.TabIndex = 8;
-            this.txt_app_process.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.txt_app_process.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // cb_app_process
             // 
@@ -237,8 +237,8 @@
             this.cb_app_process.TabIndex = 7;
             this.cb_app_process.Text = Language.FrmTools_Waiting_Process;
             this.cb_app_process.UseVisualStyleBackColor = true;
-            this.cb_app_process.CheckedChanged += new System.EventHandler(this.CbAppProcessCheckedChanged);
-            this.cb_app_process.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.cb_app_process.CheckedChanged += new System.EventHandler(this.WaitingProcessCheckedChanged);
+            this.cb_app_process.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // btn_app_select
             // 
@@ -248,8 +248,8 @@
             this.btn_app_select.TabIndex = 11;
             this.btn_app_select.Text = Language.FrmTools_Place_Shortcut;
             this.btn_app_select.UseVisualStyleBackColor = true;
-            this.btn_app_select.Click += new System.EventHandler(this.BtnAppSelectClick);
-            this.btn_app_select.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.btn_app_select.Click += new System.EventHandler(this.ApplicationShortcutClick);
+            this.btn_app_select.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // rb_app_extended
             // 
@@ -260,7 +260,7 @@
             this.rb_app_extended.TabIndex = 1;
             this.rb_app_extended.Text = Language.FrmTools_Extended_Mode;
             this.rb_app_extended.UseVisualStyleBackColor = true;
-            this.rb_app_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.rb_app_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // rb_app_surround
             // 
@@ -273,7 +273,7 @@
             this.rb_app_surround.TabStop = true;
             this.rb_app_surround.Text = Language.FrmTools_Surround_Mode;
             this.rb_app_surround.UseVisualStyleBackColor = true;
-            this.rb_app_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.rb_app_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // dialog_open
             // 
@@ -327,7 +327,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = Language.FrmTools_Tools;
             this.TopMost = true;
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmToolsKeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.gb_com.ResumeLayout(false);
             this.gb_com.PerformLayout();
             this.gb_app.ResumeLayout(false);

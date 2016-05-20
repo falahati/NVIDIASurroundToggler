@@ -3,7 +3,7 @@
 namespace NVIDIASurroundToggle.Native.Enums
 {
     [Flags]
-    public enum RedrawWindowFlags : uint
+    internal enum RedrawWindowFlags : uint
     {
         Invalidate = 0x1,
 

@@ -5,14 +5,14 @@ using NVIDIASurroundToggle.Native.Stractures;
 
 namespace NVIDIASurroundToggle.Native
 {
-    public static class Methods
+    internal static class Methods
     {
-        public delegate bool EnumWindowProc(IntPtr hWnd, IntPtr parameter);
+        public delegate bool EnumWindowProcedure(IntPtr hWnd, IntPtr parameter);
 
         public delegate bool MonitorEnumDelegate(
             IntPtr monitorHandle,
             IntPtr hdcMonitor,
-            ref Rect lprcMonitor,
+            ref Rectangle lprcMonitor,
             IntPtr dwData);
 
         [DllImport("user32")]
@@ -28,15 +28,15 @@ namespace NVIDIASurroundToggle.Native
         [DllImport("user32")]
         public static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
 
-        [DllImport("user32", SetLastError = true)]
-        public static extern bool SetWindowPos(
+        [DllImport("user32", SetLastError = true, EntryPoint = @"SetWindowPos")]
+        public static extern bool SetWindowPosition(
             IntPtr hWnd,
             IntPtr hWndInsertAfter,
             int x,
             int y,
             int cx,
             int cy,
-            SetWindowPosFlags uFlags);
+            SetWindowPositionFlags uFlags);
 
         [DllImport("user32")]
         public static extern int GetSystemMetrics(SystemMetric smIndex);
@@ -77,7 +77,7 @@ namespace NVIDIASurroundToggle.Native
 
         [DllImport("user32")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr i);
+        public static extern bool EnumChildWindows(IntPtr window, EnumWindowProcedure callback, IntPtr i);
 
         [DllImport("user32")]
         public static extern bool EnumDisplayMonitors(

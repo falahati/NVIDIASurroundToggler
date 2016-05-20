@@ -7,8 +7,7 @@ using TestStack.White.UIItems.Actions;
 
 namespace NVIDIASurroundToggle.Extensions
 {
-    // ReSharper disable once InconsistentNaming
-    public static class UIItemExtensions
+    internal static class UIItemExtensions
     {
         public static T GetChildWindowWithControlId<T>(this UIItem parent, int controlId, int timeout = 0)
             where T : UIItem
@@ -16,7 +15,7 @@ namespace NVIDIASurroundToggle.Extensions
             do
             {
                 var pointer = IntPtr.Zero;
-                Methods.EnumWindowProc childProc = (handle, arg) =>
+                Methods.EnumWindowProcedure childProc = (handle, arg) =>
                 {
                     var cId = Methods.GetWindowLong(handle, -12);
                     if (cId == controlId)

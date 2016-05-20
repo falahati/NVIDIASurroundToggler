@@ -1,6 +1,6 @@
 ﻿namespace NVIDIASurroundToggle.Native.Enums
 {
-    public enum SystemMetric
+    internal enum SystemMetric
     {
         XVirtualScreen = 0x4C,
 

@@ -3,7 +3,7 @@
 namespace NVIDIASurroundToggle.Native.Enums
 {
     [Flags]
-    public enum WindowStyles : uint
+    internal enum WindowStyles : uint
     {
         Border = 0x00800000,
 

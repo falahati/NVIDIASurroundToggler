@@ -3,7 +3,7 @@ using TestStack.White.InputDevices;
 
 namespace NVIDIASurroundToggle.Extensions
 {
-    public static class MouseExtensions
+    internal static class MouseExtensions
     {
         private static Point? _mouseLastPosition;
 

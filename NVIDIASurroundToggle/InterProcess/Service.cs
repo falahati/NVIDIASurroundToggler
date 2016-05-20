@@ -5,7 +5,7 @@ using System.ServiceModel;
 namespace NVIDIASurroundToggle.InterProcess
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class Service : IService
+    internal class Service : IService
     {
         private static ServiceHost _serviceHost;
 

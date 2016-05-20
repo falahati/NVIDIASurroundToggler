@@ -3,7 +3,7 @@
 namespace NVIDIASurroundToggle.Native.Enums
 {
     [Flags]
-    public enum ChangeDisplaySettingsFlags : uint
+    internal enum ChangeDisplaySettingsFlags : uint
     {
         Updateregistry = 0x00000001,
 

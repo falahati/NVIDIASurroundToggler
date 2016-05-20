@@ -8,7 +8,7 @@ using File = System.IO.File;
 
 namespace NVIDIASurroundToggle
 {
-    public static class Utility
+    internal static class Utility
     {
         public delegate bool ReoccurringMethod();
 
@@ -51,7 +51,7 @@ namespace NVIDIASurroundToggle
             string iconfile = null,
             string description = "")
         {
-            address = Path.ChangeExtension(address, "lnk");
+            address = Path.ChangeExtension(address, @"lnk");
             try
             {
                 if (File.Exists(address)) // Remove the old file to replace it
@@ -105,7 +105,7 @@ namespace NVIDIASurroundToggle
 
         public static void ToggleTaskbar(bool show)
         {
-            var hwnd = Methods.FindWindow("Shell_TrayWnd", "");
+            var hwnd = Methods.FindWindow(@"Shell_TrayWnd", "");
             if (hwnd != IntPtr.Zero)
             {
                 Methods.ShowWindow(hwnd, show ? ShowWindow.ShowNormal : ShowWindow.Hide);

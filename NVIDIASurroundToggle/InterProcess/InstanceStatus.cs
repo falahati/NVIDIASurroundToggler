@@ -1,6 +1,6 @@
 ﻿namespace NVIDIASurroundToggle.InterProcess
 {
-    public enum InstanceStatus
+    internal enum InstanceStatus
     {
         Busy,
 

@@ -3,7 +3,7 @@
 namespace NVIDIASurroundToggle.Native.Stractures
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Rect
+    internal struct Rectangle
     {
         public int Left;
 

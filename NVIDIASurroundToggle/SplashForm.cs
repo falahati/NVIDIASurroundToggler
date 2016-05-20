@@ -9,9 +9,9 @@ using NVIDIASurroundToggle.Resources;
 
 namespace NVIDIASurroundToggle
 {
-    public partial class FrmSplash : Form
+    internal partial class SplashForm : Form
     {
-        private static FrmSplash _instance;
+        private static SplashForm _instance;
 
         private readonly Action _action;
 
@@ -19,16 +19,16 @@ namespace NVIDIASurroundToggle
 
         private int _time = 5;
 
-        public FrmSplash(Action action = null, bool showButtons = true)
+        public SplashForm(Action action = null, bool showButtons = true)
         {
             InitializeComponent();
-            FrmSplashLocationChanged(null, null);
+            Form_LocationChanged(null, null);
             _action = action;
             _showButtons = showButtons;
             Instance = this;
         }
 
-        public static FrmSplash Instance
+        public static SplashForm Instance
         {
             get
             {
@@ -41,7 +41,7 @@ namespace NVIDIASurroundToggle
             private set { _instance = value; }
         }
 
-        private void FrmSplashLoad(object sender, EventArgs e)
+        private void FormLoad(object sender, EventArgs e)
         {
             TopMost = true;
             Utility.ToggleTaskbar(false);
@@ -86,7 +86,7 @@ namespace NVIDIASurroundToggle
             }
         }
 
-        private void FrmSplashLocationChanged(object sender, EventArgs e)
+        private void Form_LocationChanged(object sender, EventArgs e)
         {
             Size = new Size(
                 Methods.GetSystemMetrics(SystemMetric.WidthVirtualScreen),
@@ -96,7 +96,7 @@ namespace NVIDIASurroundToggle
                 Methods.GetSystemMetrics(SystemMetric.YVirtualScreen));
         }
 
-        private void FrmSplashFormClosed(object sender, FormClosedEventArgs e)
+        private void Form_Closed(object sender, FormClosedEventArgs e)
         {
             t_hider.Stop();
             t_killer.Stop();
@@ -104,12 +104,12 @@ namespace NVIDIASurroundToggle
             Cursor.Show();
         }
 
-        private void FrmSplashPaint(object sender, PaintEventArgs e)
+        private void Form_Paint(object sender, PaintEventArgs e)
         {
-            FrmSplashLocationChanged(null, null);
+            Form_LocationChanged(null, null);
         }
 
-        private void FrmSplashKeyDown(object sender, KeyEventArgs e)
+        private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Escape && t_hider.Enabled)
             {
@@ -126,15 +126,15 @@ namespace NVIDIASurroundToggle
             Application.Exit();
         }
 
-        private void BtnToolsClick(object sender, EventArgs e)
+        private void ToolsClick(object sender, EventArgs e)
         {
-            new FrmTools().Show();
+            new ToolsForm().Show();
             Close();
         }
 
-        private void BtnOptionsClick(object sender, EventArgs e)
+        private void OptionsClick(object sender, EventArgs e)
         {
-            new FrmOptions().Show();
+            new OptionsForm().Show();
             Close();
         }
     }

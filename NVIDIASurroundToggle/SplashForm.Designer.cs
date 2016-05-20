@@ -2,7 +2,7 @@
 {
     using NVIDIASurroundToggle.Resources;
 
-    partial class FrmSplash
+    partial class SplashForm
     {
         /// <summary>
         /// Required designer variable.
@@ -63,8 +63,8 @@
             this.btn_options.TabIndex = 3;
             this.btn_options.Text = global::NVIDIASurroundToggle.Resources.Language.FrmSplash__Options;
             this.btn_options.UseVisualStyleBackColor = false;
-            this.btn_options.Click += new System.EventHandler(this.BtnOptionsClick);
-            this.btn_options.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSplashKeyDown);
+            this.btn_options.Click += new System.EventHandler(this.OptionsClick);
+            this.btn_options.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // btn_tools
             // 
@@ -78,8 +78,8 @@
             this.btn_tools.TabIndex = 2;
             this.btn_tools.Text = global::NVIDIASurroundToggle.Resources.Language.FrmSplash__Tools;
             this.btn_tools.UseVisualStyleBackColor = false;
-            this.btn_tools.Click += new System.EventHandler(this.BtnToolsClick);
-            this.btn_tools.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSplashKeyDown);
+            this.btn_tools.Click += new System.EventHandler(this.ToolsClick);
+            this.btn_tools.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // t_hider
             // 
@@ -90,7 +90,7 @@
             // 
             this.t_sizer.Enabled = true;
             this.t_sizer.Interval = 300;
-            this.t_sizer.Tick += new System.EventHandler(this.FrmSplashLocationChanged);
+            this.t_sizer.Tick += new System.EventHandler(this.Form_LocationChanged);
             // 
             // lbl_info
             // 
@@ -126,12 +126,12 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Icon = Properties.Resources.Surround;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSplashFormClosed);
-            this.Load += new System.EventHandler(this.FrmSplashLoad);
-            this.LocationChanged += new System.EventHandler(this.FrmSplashLocationChanged);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmSplashPaint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSplashKeyDown);
-            this.Resize += new System.EventHandler(this.FrmSplashLocationChanged);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Closed);
+            this.Load += new System.EventHandler(this.FormLoad);
+            this.LocationChanged += new System.EventHandler(this.Form_LocationChanged);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
+            this.Resize += new System.EventHandler(this.Form_LocationChanged);
             this.ResumeLayout(false);
 
         }

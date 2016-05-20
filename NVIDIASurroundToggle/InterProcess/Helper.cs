@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NVIDIASurroundToggle.InterProcess
 {
-    public static class Helper
+    internal static class Helper
     {
         public static bool QueryStatus(InstanceStatus status)
         {

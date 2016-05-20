@@ -2,7 +2,7 @@
 {
     using NVIDIASurroundToggle.Resources;
 
-    partial class FrmOptions
+    partial class OptionsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,8 +49,8 @@
             this.btn_extended.TabIndex = 0;
             this.btn_extended.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_I_took_a_copy_of_your_settings_last_time_you_was_in_extended_mode__So_I_may_have_an_idea_about_your_desired_configuration__Click_here_to_remove_this_data_and_to_ask_you_again_later_to_reorganize_your_setup;
             this.btn_extended.UseVisualStyleBackColor = false;
-            this.btn_extended.Click += new System.EventHandler(this.BtnExtendedClick);
-            this.btn_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOptionsKeyDown);
+            this.btn_extended.Click += new System.EventHandler(this.ExtendedClick);
+            this.btn_extended.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // btn_surround
             // 
@@ -63,8 +63,8 @@
             this.btn_surround.TabIndex = 1;
             this.btn_surround.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_I_believe_that_I_have_an_idea_about_how_you_expect_your_surround_setup_to_be__If_you_think_that_I_am_wrong__click_here_and_I_will_ask_you_about_it_the_next_time_you_tried_to_enable_the_surround_mode;
             this.btn_surround.UseVisualStyleBackColor = false;
-            this.btn_surround.Click += new System.EventHandler(this.BtnSurroundClick);
-            this.btn_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOptionsKeyDown);
+            this.btn_surround.Click += new System.EventHandler(this.SurroundClick);
+            this.btn_surround.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // btn_clean
             // 
@@ -77,8 +77,8 @@
             this.btn_clean.TabIndex = 2;
             this.btn_clean.Text = global::NVIDIASurroundToggle.Resources.Language.FrmOptions_Sometimes__and_especially_when_I_get_confused__I_may_do_things_that_I_did_not_intended_to_do__Like_messing_with_your_taskbar_and_NVIDIA_control_panel__If_something_like_that_happened_to_you__click_here_and_I_do_my_best_to_make_it_right_;
             this.btn_clean.UseVisualStyleBackColor = false;
-            this.btn_clean.Click += new System.EventHandler(this.BtnCleanClick);
-            this.btn_clean.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOptionsKeyDown);
+            this.btn_clean.Click += new System.EventHandler(this.CleanClick);
+            this.btn_clean.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             // 
             // lbl_version
             // 
@@ -89,7 +89,7 @@
             this.lbl_version.TabIndex = 5;
             this.lbl_version.TabStop = true;
             this.lbl_version.Text = "By Soroush Falahati v{0}";
-            this.lbl_version.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblVersionLinkClicked);
+            this.lbl_version.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.VersionLinkClicked);
             // 
             // cb_lang
             // 
@@ -127,7 +127,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options";
             this.TopMost = true;
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOptionsKeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

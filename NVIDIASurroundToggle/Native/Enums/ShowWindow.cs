@@ -1,6 +1,6 @@
 ﻿namespace NVIDIASurroundToggle.Native.Enums
 {
-    public enum ShowWindow
+    internal enum ShowWindow
     {
         ForceMinimize = 11,
 

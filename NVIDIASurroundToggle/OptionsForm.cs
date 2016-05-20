@@ -11,9 +11,9 @@ using NVIDIASurroundToggle.Resources;
 
 namespace NVIDIASurroundToggle
 {
-    public partial class FrmOptions : Form
+    internal partial class OptionsForm : Form
     {
-        public FrmOptions()
+        public OptionsForm()
         {
             InitializeComponent();
 
@@ -26,14 +26,14 @@ namespace NVIDIASurroundToggle
                     Tag = string.Empty
                 });
             cb_lang.SelectedIndex = 0;
-            ResourceManager resourceManager = new ResourceManager(typeof(NVidiaLocalization));
-            foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            var resourceManager = new ResourceManager(typeof (NVidiaLocalization));
+            foreach (var culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
             {
                 try
                 {
                     if (!string.IsNullOrWhiteSpace(culture.Name))
                     {
-                        ResourceSet rs = resourceManager.GetResourceSet(culture, true, false);
+                        var rs = resourceManager.GetResourceSet(culture, true, false);
                         if (rs != null)
                         {
                             cb_lang.Items.Add(new ComboBoxItem(culture.DisplayName) {Tag = culture.Name});
@@ -66,7 +66,7 @@ namespace NVIDIASurroundToggle
                 }
                 cb_lang.SelectedItem = selectedLanguage;
             }
-            cb_lang.SelectedIndexChanged += cb_lang_SelectedIndexChanged;
+            cb_lang.SelectedIndexChanged += LanguageIndexChanged;
             RefreshButtons();
         }
 
@@ -102,21 +102,21 @@ namespace NVIDIASurroundToggle
             }
         }
 
-        private void BtnExtendedClick(object sender, EventArgs e)
+        private void ExtendedClick(object sender, EventArgs e)
         {
             Settings.Default.DisplaySettings = string.Empty;
             Settings.Default.Save();
             RefreshButtons();
         }
 
-        private void BtnSurroundClick(object sender, EventArgs e)
+        private void SurroundClick(object sender, EventArgs e)
         {
             Settings.Default.Arrangement = string.Empty;
             Settings.Default.Save();
             RefreshButtons();
         }
 
-        private void BtnCleanClick(object sender, EventArgs e)
+        private void CleanClick(object sender, EventArgs e)
         {
             Utility.ToggleTaskbar(true);
             Surround.Cleanup();
@@ -124,7 +124,7 @@ namespace NVIDIASurroundToggle
             btn_clean.Enabled = false;
         }
 
-        private void FrmOptionsKeyDown(object sender, KeyEventArgs e)
+        private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Escape)
             {
@@ -132,12 +132,12 @@ namespace NVIDIASurroundToggle
             }
         }
 
-        private void LblVersionLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void VersionLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("http://falahati.net");
+            Process.Start(@"http://falahati.github.io/NVIDIASurroundToggler");
         }
 
-        private void cb_lang_SelectedIndexChanged(object sender, EventArgs e)
+        private void LanguageIndexChanged(object sender, EventArgs e)
         {
             var item = cb_lang.SelectedItem as ComboBoxItem;
             if (item != null)
@@ -146,6 +146,5 @@ namespace NVIDIASurroundToggle
                 Settings.Default.Save();
             }
         }
-        
     }
 }

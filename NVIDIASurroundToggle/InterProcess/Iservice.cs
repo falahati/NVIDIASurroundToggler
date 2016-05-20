@@ -3,7 +3,7 @@
 namespace NVIDIASurroundToggle.InterProcess
 {
     [ServiceContract]
-    public interface IService
+    internal interface IService
     {
         InstanceStatus Status { [OperationContract] get; }
     }
