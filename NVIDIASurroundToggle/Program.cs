@@ -70,7 +70,8 @@ namespace NVIDIASurroundToggle
                                     Language
                                         .Program_Another_instance_of_this_program_is_in_working_state__please_try_again_later_);
                             }
-                            Surround.DisableSurround(false);
+                            Surround.DisableSurround(false,
+                                !(CommandLineOptions.Default.NoSLI || Settings.Default.DoNotPreferSLIMode));
                             return;
                         case StartupActions.GoSurround:
                             if (Helper.IsAnyProgramActive())
@@ -88,7 +89,8 @@ namespace NVIDIASurroundToggle
                                     Language
                                         .Program_Another_instance_of_this_program_is_in_working_state__please_try_again_later_);
                             }
-                            Surround.ToggleSurround(false);
+                            Surround.ToggleSurround(false,
+                                !(CommandLineOptions.Default.NoSLI || Settings.Default.DoNotPreferSLIMode));
                             return;
                         case StartupActions.None:
                             if (Helper.IsAnyProgramActive())
@@ -97,7 +99,8 @@ namespace NVIDIASurroundToggle
                                     Language
                                         .Program_Another_instance_of_this_program_is_in_working_state__please_try_again_later_);
                             }
-                            Surround.ToggleSurround();
+                            Surround.ToggleSurround(true,
+                                !(CommandLineOptions.Default.NoSLI || Settings.Default.DoNotPreferSLIMode));
                             break;
                         default:
                             throw new Exception(Language.Program_Bad_Action_Specified);
@@ -123,7 +126,8 @@ namespace NVIDIASurroundToggle
                                         Language
                                             .Program_You_can_t_start_a_process_in_extended_mode_when_you_have_another_process_in_surround_mode__Close_the_other_program_and_try_again);
                                 }
-                                didWeChangedTheMode = Surround.DisableSurround(false);
+                                didWeChangedTheMode = Surround.DisableSurround(false,
+                                    !(CommandLineOptions.Default.NoSLI || Settings.Default.DoNotPreferSLIMode));
                             }
                             Service.GetInstance().Status = InstanceStatus.WaitingForExtendedProcess;
                             break;
@@ -184,7 +188,8 @@ namespace NVIDIASurroundToggle
                                     Thread.Sleep(500);
                                 }
                                 Service.GetInstance().Status = InstanceStatus.Busy;
-                                Surround.DisableSurround(false);
+                                Surround.DisableSurround(false,
+                                    !(CommandLineOptions.Default.NoSLI || Settings.Default.DoNotPreferSLIMode));
                                 break;
                             default:
                                 throw new ArgumentException(Language.Program_Bad_Action_Specified);

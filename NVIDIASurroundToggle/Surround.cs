@@ -24,32 +24,32 @@ namespace NVIDIASurroundToggle
 {
     internal static class Surround
     {
-        public static bool EnableSurround(bool showControls = true)
+        public static bool EnableSurround(bool showControls)
         {
             var result = false;
             if (!IsBusy())
             {
-                new SplashForm(() => result = ChangeNvidiaDisplayMode(true), showControls).ShowDialog();
+                new SplashForm(() => result = ChangeNvidiaDisplayMode(true, true), showControls).ShowDialog();
             }
             return result;
         }
 
-        public static bool DisableSurround(bool showControls = true)
+        public static bool DisableSurround(bool showControls, bool preferSLI)
         {
             var result = false;
             if (!IsBusy())
             {
-                new SplashForm(() => result = ChangeNvidiaDisplayMode(false), showControls).ShowDialog();
+                new SplashForm(() => result = ChangeNvidiaDisplayMode(false, preferSLI), showControls).ShowDialog();
             }
             return result;
         }
 
-        public static bool ToggleSurround(bool showControls = true)
+        public static bool ToggleSurround(bool showControls, bool preferSLI)
         {
             var result = false;
             if (!IsBusy())
             {
-                new SplashForm(() => result = ChangeNvidiaDisplayMode(null), showControls).ShowDialog();
+                new SplashForm(() => result = ChangeNvidiaDisplayMode(null, preferSLI), showControls).ShowDialog();
             }
             return result;
         }
@@ -375,7 +375,7 @@ namespace NVIDIASurroundToggle
             }
         }
 
-        private static bool AutomateControlPanel(Application application, bool? goSurround)
+        private static bool AutomateControlPanel(Application application, bool? goSurround, bool preferSLI)
         {
             var window = application.GetWindow(NVidiaLocalization.NVIDIA_ControlPanel_Caption_NVIDIA_Control_Panel);
             try
@@ -386,7 +386,10 @@ namespace NVIDIASurroundToggle
                 {
                     throw new Exception(Language.Surround_Can_t_find_the_surround_settings);
                 }
+
                 CheckBox surroundCheckbox = null;
+                RadioButton surroundRadioButton = null;
+                RadioButton sliRadioButton = null;
                 Utility.DoTimeout(
                     () =>
                     {
@@ -398,32 +401,74 @@ namespace NVIDIASurroundToggle
                             });
                         application.WaitWhileBusy();
                         surroundCheckbox = window.GetChildWindowWithControlId<CheckBox>(1866);
-                        return surroundCheckbox != null;
+                        if (surroundCheckbox != null)
+                        {
+                            return true;
+                        }
+                        surroundRadioButton = window.GetChildWindowWithControlId<RadioButton>(1864);
+                        if (surroundRadioButton == null)
+                        {
+                            return false;
+                        }
+                        if (preferSLI)
+                        {
+                            sliRadioButton = window.GetChildWindowWithControlId<RadioButton>(1518);
+                            if (sliRadioButton == null || !sliRadioButton.Enabled)
+                            {
+                                sliRadioButton = window.GetChildWindowWithControlId<RadioButton>(1519);
+                            }
+                        }
+                        if (sliRadioButton == null || !sliRadioButton.Enabled)
+                        {
+                            sliRadioButton = window.GetChildWindowWithControlId<RadioButton>(1523);
+                        }
+                        return sliRadioButton != null;
                     });
-                if (surroundCheckbox == null)
+
+                if ((surroundCheckbox == null && surroundRadioButton == null) ||
+                    (surroundRadioButton != null && goSurround != true && sliRadioButton == null))
                 {
                     throw new Exception(Language.Surround_Can_t_find_the_surround_settings);
                 }
 
-                if (goSurround != null && surroundCheckbox.Checked == goSurround)
+                if (goSurround != null &&
+                    (surroundCheckbox?.Checked == goSurround || surroundRadioButton?.IsSelected == goSurround))
                 {
                     window.Close();
                     window.WaitWhileBusy();
                     return false;
                 }
 
-                goSurround = !surroundCheckbox.Checked;
+                goSurround = !(surroundCheckbox?.Checked ?? surroundRadioButton?.IsSelected);
                 var success = window.ExecuteAutomationAction(
                     () =>
                     {
                         if (Utility.DoTimeout(
                             () =>
                             {
-                                Utility.ContinueException(() => surroundCheckbox.Checked = goSurround.Value);
+                                if (surroundCheckbox != null)
+                                {
+                                    Utility.ContinueException(() => surroundCheckbox.Checked = goSurround.Value);
+                                }
+                                else
+                                {
+                                    Utility.ContinueException(() =>
+                                    {
+                                        if (goSurround.Value)
+                                        {
+                                            surroundRadioButton?.Select();
+                                        }
+                                        else
+                                        {
+                                            sliRadioButton?.Select();
+                                        }
+                                    });
+                                }
                                 Mouse.Instance.RestoreLocation();
                                 window.WaitWhileBusy();
                                 application.WaitWhileBusy();
-                                return surroundCheckbox.Checked == goSurround;
+                                return surroundCheckbox?.Checked == goSurround ||
+                                       surroundRadioButton?.IsSelected == goSurround;
                             }))
                         {
                             var applyButton =
@@ -522,7 +567,7 @@ namespace NVIDIASurroundToggle
                 });
         }
 
-        private static bool ChangeNvidiaDisplayMode(bool? on)
+        private static bool ChangeNvidiaDisplayMode(bool? on, bool preferSLI)
         {
             Cleanup();
             try
@@ -536,7 +581,7 @@ namespace NVIDIASurroundToggle
                     Application.Launch(new ProcessStartInfo(nvcpAddress) {WindowStyle = ProcessWindowStyle.Minimized});
                 application.WaitWhileBusy();
                 Mouse.Instance.SavePosition();
-                var result = AutomateControlPanel(application, on);
+                var result = AutomateControlPanel(application, on, preferSLI);
                 Utility.ContinueException(() => application.WaitWhileBusy());
                 Cleanup();
                 return result;

@@ -68,6 +68,10 @@ namespace NVIDIASurroundToggle
                 args.Add(@"-aOpenTools");
                 description = Language.FrmTools_Opens_the_program_s_tools_screen;
             }
+            if (cb_com_noSLI.Enabled && cb_com_noSLI.Checked)
+            {
+                args.Add(@"--nosli true");
+            }
             var argsString = string.Join(" ", args);
 
             if (dialog_save.ShowDialog(this) == DialogResult.OK)
@@ -116,6 +120,10 @@ namespace NVIDIASurroundToggle
             {
                 args.Add(@"-aGoExtended");
                 description = string.Format(Language.FrmTools_Open_in_extended_mode, programName);
+            }
+            if (cb_app_noSLI.Enabled && cb_app_noSLI.Checked)
+            {
+                args.Add(@"--nosli true");
             }
             args.Add($"-e \"{txt_app_executable.Text}\"");
             if (cb_app_args.Checked && !string.IsNullOrWhiteSpace(txt_app_args.Text))
@@ -181,6 +189,18 @@ namespace NVIDIASurroundToggle
             {
                 txt_app_args.Text = string.Empty;
             }
+        }
+
+        private void CommandOptionsCheckedChanged(object sender, EventArgs e)
+        {
+            cb_com_noSLI.Enabled = rb_com_extended.Checked || rb_com_toggle.Checked;
+            cb_com_noSLI.Checked = cb_com_noSLI.Enabled && cb_com_noSLI.Checked;
+        }
+
+        private void ApplicationsOptionsCheckedChanged(object sender, EventArgs e)
+        {
+            cb_app_noSLI.Enabled = rb_app_extended.Checked;
+            cb_app_noSLI.Checked = cb_app_noSLI.Enabled && cb_app_noSLI.Checked;
         }
     }
 }

@@ -36,6 +36,7 @@
             this.lbl_version = new System.Windows.Forms.LinkLabel();
             this.cb_lang = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cb_noSLI = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_extended
@@ -82,8 +83,9 @@
             // 
             // lbl_version
             // 
+            this.lbl_version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_version.AutoSize = true;
-            this.lbl_version.Location = new System.Drawing.Point(12, 324);
+            this.lbl_version.Location = new System.Drawing.Point(288, 349);
             this.lbl_version.Name = "lbl_version";
             this.lbl_version.Size = new System.Drawing.Size(124, 13);
             this.lbl_version.TabIndex = 5;
@@ -95,7 +97,7 @@
             // 
             this.cb_lang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_lang.FormattingEnabled = true;
-            this.cb_lang.Location = new System.Drawing.Point(178, 299);
+            this.cb_lang.Location = new System.Drawing.Point(178, 323);
             this.cb_lang.Name = "cb_lang";
             this.cb_lang.Size = new System.Drawing.Size(234, 21);
             this.cb_lang.TabIndex = 4;
@@ -103,18 +105,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 302);
+            this.label1.Location = new System.Drawing.Point(9, 326);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "NVIDIA Control Panel Language";
             // 
-            // FrmOptions
+            // cb_noSLI
+            // 
+            this.cb_noSLI.AutoSize = true;
+            this.cb_noSLI.Location = new System.Drawing.Point(12, 300);
+            this.cb_noSLI.Name = "cb_noSLI";
+            this.cb_noSLI.Size = new System.Drawing.Size(273, 17);
+            this.cb_noSLI.TabIndex = 6;
+            this.cb_noSLI.Text = "Do not prefer SLI when switching to Extended Mode";
+            this.cb_noSLI.UseVisualStyleBackColor = true;
+            // 
+            // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(424, 346);
+            this.ClientSize = new System.Drawing.Size(424, 371);
+            this.Controls.Add(this.cb_noSLI);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_lang);
             this.Controls.Add(this.lbl_version);
@@ -123,7 +136,7 @@
             this.Controls.Add(this.btn_extended);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = global::NVIDIASurroundToggle.Properties.Resources.Surround;
-            this.Name = "FrmOptions";
+            this.Name = "OptionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Options";
             this.TopMost = true;
@@ -141,5 +154,6 @@
         private System.Windows.Forms.LinkLabel lbl_version;
         private System.Windows.Forms.ComboBox cb_lang;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cb_noSLI;
     }
 }

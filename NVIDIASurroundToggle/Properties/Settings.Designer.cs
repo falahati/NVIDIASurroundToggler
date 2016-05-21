@@ -166,5 +166,17 @@ namespace NVIDIASurroundToggle.Properties {
                 this["ControlPanelLanguage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DoNotPreferSLIMode {
+            get {
+                return ((bool)(this["DoNotPreferSLIMode"]));
+            }
+            set {
+                this["DoNotPreferSLIMode"] = value;
+            }
+        }
     }
 }

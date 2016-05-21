@@ -67,7 +67,15 @@ namespace NVIDIASurroundToggle
                 cb_lang.SelectedItem = selectedLanguage;
             }
             cb_lang.SelectedIndexChanged += LanguageIndexChanged;
+            cb_noSLI.Checked = Settings.Default.DoNotPreferSLIMode;
+            cb_noSLI.CheckedChanged += NoSLICheckedChanged;
             RefreshButtons();
+        }
+
+        private void NoSLICheckedChanged(object sender, EventArgs eventArgs)
+        {
+            Settings.Default.DoNotPreferSLIMode = cb_noSLI.Checked;
+            Settings.Default.Save();
         }
 
         private void RefreshButtons()

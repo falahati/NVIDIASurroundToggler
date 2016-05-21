@@ -21,6 +21,9 @@ namespace NVIDIASurroundToggle
         [Option('e', @"execute", HelpText = @"For this program only? (Filename)", DefaultValue = null)]
         public string StartFilename { get; set; }
 
+        [Option(@"nosli", HelpText = @"Disable SLI preference in extended mode", DefaultValue = false)]
+        public bool NoSLI { get; set; }
+
         [Option(@"arguments", HelpText = @"The other program execution options.", DefaultValue = null)]
         public string StartArguments { get; set; }
 
