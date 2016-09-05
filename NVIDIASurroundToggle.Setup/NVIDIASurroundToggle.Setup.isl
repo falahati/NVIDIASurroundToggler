@@ -3981,7 +3981,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{DD3B2C49-B5F0-4A0D-BB8B-375A7309DB75}</td></row>
 		<row><td>ISUSSignature</td><td>{1B0C8CDD-D399-408A-9231-1A1698AB19F9}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpgradePaths,viewUpdateService,viewAppFiles,viewObjects,viewShortcuts,viewRegistry,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewServices,viewUI,viewTextMessages,viewSystemSearch,viewCustomActions,viewRelease</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUpgradePaths,viewUpdateService,viewAppFiles,viewObjects,viewShortcuts,viewRegistry,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewServices,viewUI,viewTextMessages,viewSystemSearch,viewCustomActions,viewRelease,viewISToday,viewLearnMore</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4361,9 +4361,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]NVIDIASurroundToggle.Primary output</td><td/></row>
-		<row><td>ProductCode</td><td>{8AC8FF33-9C64-4398-AC6C-12990866AC03}</td><td/></row>
+		<row><td>ProductCode</td><td>{8AC8FF33-9C64-4398-AC6C-12990866AC04}</td><td/></row>
 		<row><td>ProductName</td><td>NVIDIA Surround Toggle</td><td/></row>
-		<row><td>ProductVersion</td><td>1.2.0.0</td><td/></row>
+		<row><td>ProductVersion</td><td>1.2.1.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4681,7 +4681,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
-		<row><td>{4E82F3B2-3316-4793-AB31-D1F16B713736}</td><td>1.1.0.0</td><td>1.1.99.0</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>UpgradeEntry</td></row>
+		<row><td>{4E82F3B2-3316-4793-AB31-D1F16B713736}</td><td>1.1.0.0</td><td>1.2.0.0</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>UpgradeEntry</td></row>
 	</table>
 
 	<table name="Verb">
