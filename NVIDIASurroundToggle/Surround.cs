@@ -384,7 +384,11 @@ namespace NVIDIASurroundToggle
                 var surroundTreeItem = window.GetChildWindowWithControlId<UIItem>(4100, 5000);
                 if (surroundTreeItem == null)
                 {
-                    throw new Exception(Language.Surround_Can_t_find_the_surround_settings);
+                    surroundTreeItem = window.GetChildWindowWithControlId<UIItem>(4112, 5000);
+                    if (surroundTreeItem == null)
+                    {
+                        throw new Exception(Language.Surround_Can_t_find_the_surround_settings);
+                    }
                 }
 
                 CheckBox surroundCheckbox = null;
