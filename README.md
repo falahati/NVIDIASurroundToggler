@@ -14,6 +14,9 @@ Inspired by <a href="http://hardforum.com/showthread.php?t=1590030">"Unknown-One
 ## WHERE TO DOWNLOAD
 To download the latest version of this program, take a look at the <a href="https://github.com/falahati/NVIDIASurroundToggler/releases">releases page</a>.
 
+## DONATION
+[<img width="24" height="24" src="http://icons.iconarchive.com/icons/sonya/swarm/256/Coffee-icon.png"/>**Every coffee counts! :)**](https://www.coinpayments.net/index.php?cmd=_donate&reset=1&merchant=820707aded07845511b841f9c4c335cd&item_name=Donate&currency=USD&amountf=10.00000000&allow_amount=1&want_shipping=0&allow_extra=1)
+
 ## HOW TO USE
 You can toggle surround mode by right clicking on desktop and selecting 'NVIDIA Surround' option. You also can force a program to start in a specific mode by right clicking on the executable file and following the same instructions.
 ![Screenshot](/contextmenus.jpg?raw=true "Screenshot")
