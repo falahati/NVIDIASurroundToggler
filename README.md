@@ -5,6 +5,10 @@ https://github.com/falahati/HeliosDisplayManagement
 
 
 # NVIDIA Surround Toggler
+[![](https://img.shields.io/github/license/falahati/NVIDIASurroundToggler.svg?style=flat-square)](https://github.com/falahati/NVIDIASurroundToggler/blob/master/LICENSE)
+[![](https://img.shields.io/github/commit-activity/y/falahati/NVIDIASurroundToggler.svg?style=flat-square)](https://github.com/falahati/NVIDIASurroundToggler/commits/master)
+[![](https://img.shields.io/github/issues/falahati/NVIDIASurroundToggler.svg?style=flat-square)](https://github.com/falahati/NVIDIASurroundToggler/issues)
+
 NVidia Surround Toggler is a simple tool/program that try to fill the main gap left by NVIDIA in their surround technology's user experience by letting the user toggle between the two modes (Surround and Extended) as fast and with less pain as possible.
 
 The program's main feature is saving of both surround and extended settings and possibility to run a program in a specific display mode.
@@ -12,10 +16,21 @@ The program's main feature is saving of both surround and extended settings and 
 Inspired by <a href="http://hardforum.com/showthread.php?t=1590030">"Unknown-One"'s "NVSToggle"</a> (Even using the same icon)
 
 ## WHERE TO DOWNLOAD
+[![](https://img.shields.io/github/downloads/falahati/NVIDIASurroundToggler/total.svg?style=flat-square)](https://github.com/falahati/NVIDIASurroundToggler/releases)
+[![](https://img.shields.io/github/tag-date/falahati/NVIDIASurroundToggler.svg?label=version&style=flat-square)](https://github.com/falahati/NVIDIASurroundToggler/releases)
+
 To download the latest version of this program, take a look at the <a href="https://github.com/falahati/NVIDIASurroundToggler/releases">releases page</a>.
 
 ## DONATION
-[<img width="24" height="24" src="http://icons.iconarchive.com/icons/sonya/swarm/256/Coffee-icon.png"/>**Every coffee counts! :)**](https://www.coinpayments.net/index.php?cmd=_donate&reset=1&merchant=820707aded07845511b841f9c4c335cd&item_name=Donate&currency=USD&amountf=10.00000000&allow_amount=1&want_shipping=0&allow_extra=1)
+Donations assist development and are greatly appreciated; also always remember that [every coffee counts!](https://media.makeameme.org/created/one-simply-does-i9k8kx.jpg) :)
+
+[![](https://img.shields.io/badge/fiat-PayPal-8a00a3.svg?style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WR3KK2B6TYYQ4&item_name=Donation&currency_code=USD&source=url)
+[![](https://img.shields.io/badge/crypto-CoinPayments-8a00a3.svg?style=flat-square)](https://www.coinpayments.net/index.php?cmd=_donate&reset=1&merchant=820707aded07845511b841f9c4c335cd&item_name=Donate&currency=USD&amountf=20.00000000&allow_amount=1&want_shipping=0&allow_extra=1)
+[![](https://img.shields.io/badge/shetab-ZarinPal-8a00a3.svg?style=flat-square)](https://zarinp.al/@falahati)
+
+**--OR--**
+
+You can always donate your time by contributing to the project or by introducing it to others.
 
 ## HOW TO USE
 You can toggle surround mode by right clicking on desktop and selecting 'NVIDIA Surround' option. You also can force a program to start in a specific mode by right clicking on the executable file and following the same instructions.
