@@ -1,4 +1,4 @@
-_THIS PROJECT IS CURRENTLY OUTDATED AND MAY NOW WORK AS EXPECTED. IT IS ALSO NOT UNDER ACTIVE DEVELOPMENT OR MAINTENANCE ANYMORE._
+_THIS PROJECT IS CURRENTLY OUTDATED AND MAY NOT WORK AS EXPECTED. IT IS ALSO NOT UNDER ACTIVE DEVELOPMENT OR MAINTENANCE ANYMORE._
 
 **Please consider checking out my other project that should do what this project intended to do, even better:**
 https://github.com/falahati/HeliosDisplayManagement
